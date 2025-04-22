@@ -1,0 +1,30 @@
+.logo {
+    width: 60px;
+}
+
+.carrito {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.icon {
+    width: 25px;
+}
+
+.bg-contacto {
+    height: 300px;
+    background-image: url("../img/contacto.png");
+    background-size: cover;
+    background-position: 0 20%;
+    color: white;
+    letter-spacing: 10px;
+}
+
+.bg-terminos {
+    height: 300px;
+    background-image: url("../img/terminos.png");
+    background-size: cover;
+    background-position: 0 20%;
+    color: white;
+    letter-spacing: 10px;
+}
