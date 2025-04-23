@@ -1,10 +1,29 @@
+/* Google Fonts */
+
+@font-face {
+    font-family: 'DM-Sans';
+    src: url('../fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*              */
+
 .logo {
     width: 60px;
 }
 
 .carrito {
     width: 40px;
+    border: solid 1px white;
     border-radius: 50%;
+    box-shadow: 0 0 4px 0.5px grey;
+    transform: all 1s;
+}
+
+.carrito:hover {
+    border: solid 1px lightskyblue;
+    box-shadow: 0 0 4px 0.5px lightskyblue;
 }
 
 .icon {
@@ -27,4 +46,62 @@
     background-position: 0 20%;
     color: white;
     letter-spacing: 10px;
+}
+
+.navbar-style {
+    height: 58px;
+}
+
+.nav-op {
+    position: relative;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+    margin: 0 2px;
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    padding: 8px 0;
+    transition: color 0.4s, background-color 0.4s;
+}
+  
+/* Pseudoelementos para los bordes animados */
+.nav-op::before,
+.nav-op::after {
+    content: '';
+    position: absolute;
+    height: 1px; /* Grosor del borde (como en tu código) */
+    width: 0; /* Inicialmente invisibles */
+    background-color: lightskyblue; /* Color del borde */
+    transition: width 0.4s ease; /* Animación del ancho */
+}
+  
+/* Borde superior */
+.nav-op::before {
+    top: 0;
+    left: 0;
+}
+  
+/* Borde inferior */
+.nav-op::after {
+    bottom: 0;
+    right: 0; /* Para efecto espejo (opcional) */
+}
+  
+/* Efecto hover (igual que tu código, pero con animación) */
+.nav-op:hover {
+    color: lightskyblue !important;
+    background-color: rgb(48, 54, 59) !important;
+}
+  
+/* Animación al hacer hover */
+.nav-op:hover::before {
+    width: 100%; /* Expansión de izquierda a derecha */
+}
+  
+.nav-op:hover::after {
+    width: 100%; /* Expansión de derecha a izquierda (o cambia a "left: 0" para misma dirección) */
+}
+
+.dm-sans {
+    font-family: 'DM-Sans', sans-serif;
 }

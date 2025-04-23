@@ -13,15 +13,15 @@
     <!-- Enlaces a JavaScript -->
     <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="container d-flex flex-column min-vh-100 bg-dark text-white">
     <header class="container-fluid d-flex">
-        <img class="img-fluid img-thumbnail logo" src="./assets/img/logomarca.jpg" />
+        <img class="img-fluid logo " src="./assets/img/logomarca_dark.png" />
         <div class="ms-auto d-flex align-items-center">
             <img class="carrito" src="./assets/img/carrito.png" />
-            <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#modalRegistro">
+            <button type="button" class="btn btn-dark ms-3 border-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">
                 Registrarse
             </button>
-            <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#modalIngreso">
+            <button type="button" class="btn btn-dark border border-secondary bg-gradient ms-2" data-bs-toggle="modal" data-bs-target="#modalIngreso">
                 Ingresar
             </button>
         </div>
