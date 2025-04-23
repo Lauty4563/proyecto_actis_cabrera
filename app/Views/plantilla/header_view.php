@@ -13,7 +13,7 @@
     <!-- Enlaces a JavaScript -->
     <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
 </head>
-<body class="container d-flex flex-column min-vh-100 bg-dark text-white">
+<body class="p-sm-0 container-lg flex-column min-vh-100 bg-dark text-white">
     <header class="container-fluid d-flex">
         <img class="img-fluid logo " src="./assets/img/logomarca_dark.png" />
         <div class="ms-auto d-flex align-items-center">

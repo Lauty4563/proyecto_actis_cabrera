@@ -1,7 +1,8 @@
 <div class="d-flex align-items-center justify-content-center py-4 bg-contacto">
     <h1><?= $titulo ?></h1>
 </div>
-<div class="container-fluid row mx-auto justify-content-evenly my-4 g-3">
+<div class="container-fluid row mx-auto justify-content-evenly my-4 g-3"
+data-bs-theme="dark">
     <div class="col-md-5 border">
         <div class="">
             <h2 class="text-center pt-3">Datos de la Empresa</h2>
@@ -23,7 +24,7 @@
         </div>
     </div>
 
-    <div class="col-md-6 border">
+    <div class="col-md-6 border" data-bs-theme="dark">
         <form class="px-5 py-2">
             <div class="py-2 fs-5"><b>Formulario de Contacto</b></div>
             <div class="mb-3">
@@ -44,10 +45,9 @@
             </div>
             <div class="mb-3">
                 <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control bg-dark" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn btn-primary mb-2">Enviar</button>
         </form>
     </div>
-
 </div>
