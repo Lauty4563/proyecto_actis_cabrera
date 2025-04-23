@@ -9,9 +9,12 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/aos.css">
 
     <!-- Enlaces a JavaScript -->
     <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./assets/js/aos.js"></script>
+    <script defer> document.addEventListener('DOMContentLoaded', function () {AOS.init();}); </script>
 </head>
 <body class="p-sm-0 container-lg d-flex flex-column min-vh-100 bg-dark text-white">
     <header class="container-fluid d-flex">
@@ -119,22 +122,22 @@
     </div>
 
     <!-- Modal Ingreso -->
-    <div class="modal fade" id="modalIngreso" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true"  data-bs-theme="dark">
+    <div class="modal fade" id="modalIngreso" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true"  data-bs-theme="dark">
         <div class="modal-dialog inter">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="registroLabel">Ingresar cuenta registrada</h5>
+                    <h5 class="modal-title" id="loginLabel">Ingresar cuenta registrada</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formRegistro">
+                    <form id="formLogin">
                         <div class="mb-3">
-                            <label for="emailRegistro" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailRegistro" required>
+                            <label for="emailLogin" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailLogin" required>
                         </div>
                         <div class="mb-3">
-                            <label for="passRegistro" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="passRegistro" required>
+                            <label for="passLogin" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="passLogin" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Ingresar</button>
                     </form>

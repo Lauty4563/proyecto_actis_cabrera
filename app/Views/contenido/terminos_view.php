@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center justify-content-center py-4 bg-terminos">
-    <h1><?= $titulo ?></h1>
+    <h1 data-aos="fade-down"><?= $titulo ?></h1>
 </div>
-<div class="container mt-3" data-bs-theme="dark">
+<div class="container mt-3" data-bs-theme="dark" data-aos="zoom-in">
     <p class="container p-4 bg-secondary-subtle text-secondary-emphasiss fs-5 text-center">
         <b>Última actualización: 20/04/2025</b>
     </p>

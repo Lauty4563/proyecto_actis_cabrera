@@ -7,7 +7,7 @@ class Terminos extends BaseController
     public function index()
     {
         $data = [
-            'titulo' => 'Terminos y Usos',
+            'titulo' => 'Términos y Usos',
             'active' => 'terminos',
         ];
 

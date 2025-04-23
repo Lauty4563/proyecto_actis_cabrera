@@ -1,9 +1,9 @@
 <div class="d-flex align-items-center justify-content-center py-4 bg-contacto">
-    <h1><?= $titulo ?></h1>
+    <h1 data-aos="fade-down"><?= $titulo ?></h1>
 </div>
 <div class="container-fluid row mx-auto justify-content-evenly my-4 g-3"
 data-bs-theme="dark">
-    <div class="col-md-5 border">
+    <div class="col-md-5 border" data-aos="zoom-in">
         <div class="">
             <h2 class="text-center pt-3">Datos de la Empresa</h2>
             <p class="p-5 mb-0">
@@ -24,7 +24,7 @@ data-bs-theme="dark">
         </div>
     </div>
 
-    <div class="col-md-6 border" data-bs-theme="dark">
+    <div class="col-md-6 border" data-bs-theme="dark" data-aos="zoom-in">
         <form class="px-5 py-2">
             <div class="py-2 fs-5"><b>Formulario de Contacto</b></div>
             <div class="mb-3">
@@ -51,7 +51,7 @@ data-bs-theme="dark">
         </form>
     </div>
 
-    <div class="container pt-3 d-flex justify-content-center">
+    <div class="container pt-3 d-flex justify-content-center" data-aos="zoom-in">
         <iframe 
             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3540.0750781757515!2d-58.831931237404824!3d-27.46692191301753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1745434537602!5m2!1ses-419!2sar" 
             width="80%" 
