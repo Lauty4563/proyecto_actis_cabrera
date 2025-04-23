@@ -64,6 +64,11 @@
     height: 58px;
 }
 
+.formulario {
+    font-size: 14px !important;
+    font-family: 'Inter', sans-serif;
+}
+
 .nav-op {
     position: relative;
     border-top: solid 1px transparent;
@@ -114,9 +119,12 @@
     width: 100%; /* Expansión de derecha a izquierda (o cambia a "left: 0" para misma dirección) */
 }
 
-.mi-modal {
-    max-width: 75% !important;
+@media (min-width: 576px) {
+    .mi-modal {
+        max-width: 75% !important;
+    }
 }
+
 
 .dm-sans {
     font-family: 'DM-Sans', sans-serif;
