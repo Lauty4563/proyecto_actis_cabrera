@@ -37,6 +37,11 @@
     width: 25px;
 }
 
+.icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Efecto de sombra */
+}
+
 .bg-contacto {
     height: 300px;
     background-image: url("../img/contacto.png");
@@ -109,6 +114,10 @@
     width: 100%; /* Expansión de derecha a izquierda (o cambia a "left: 0" para misma dirección) */
 }
 
+.mi-modal {
+    max-width: 75% !important;
+}
+
 .dm-sans {
     font-family: 'DM-Sans', sans-serif;
 }
@@ -120,4 +129,8 @@
 div > p {
     font-size: 18px;
     line-height: 1.8rem;
+}
+
+footer {
+    height: 150px;
 }

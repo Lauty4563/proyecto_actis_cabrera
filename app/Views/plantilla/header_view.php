@@ -13,7 +13,7 @@
     <!-- Enlaces a JavaScript -->
     <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
 </head>
-<body class="p-sm-0 container-lg flex-column min-vh-100 bg-dark text-white">
+<body class="p-sm-0 container-lg d-flex flex-column min-vh-100 bg-dark text-white">
     <header class="container-fluid d-flex">
         <img class="img-fluid logo " src="./assets/img/logomarca_dark.png" />
         <div class="ms-auto d-flex align-items-center">
@@ -28,8 +28,8 @@
     </header>
     
     <!-- Modal Registro -->
-    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true" data-bs-theme="dark">
+        <div class="modal-dialog mi-modal inter">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="registroLabel">Crear cuenta</h5>
@@ -61,8 +61,8 @@
     </div>
 
     <!-- Modal Ingreso -->
-    <div class="modal fade" id="modalIngreso" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="modalIngreso" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true"  data-bs-theme="dark">
+        <div class="modal-dialog inter">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="registroLabel">Ingresar cuenta registrada</h5>
