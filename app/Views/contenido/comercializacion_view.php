@@ -5,10 +5,9 @@
     <div class="col-md-6 order-md-1 order-2 px-4">
       <h2 class="fs-1">Tipos de Entregas</h2>
       <p>En Mi Tienda, nos comprometemos a entregar tus pedidos de manera rápida y segura. Ofrecemos las siguientes opciones:</p>
-      <p>
-        Entrega Estándar: Recibe tu pedido en un plazo de 3 a 5 días hábiles. <br/>
-        Entrega Express: Si necesitas tu pedido con urgencia, te lo entregamos en 24-48 horas. <br/>
-        Retiro en Tienda: Puedes recoger tu compra personalmente en nuestro local.
+      <p> <b>Entrega Estándar:</b> Recibe tu pedido en un plazo de 3 a 5 días hábiles. <br/> </p>
+      <p> <b>Entrega Express:</b> Si necesitas tu pedido con urgencia, te lo entregamos en 24-48 horas. <br/> </p>
+        <b>Retiro en Tienda:</b> Puedes recoger tu compra personalmente en nuestro local.
       </p>
     </div>
     <div class="col-md-6 order-md-1 order-1 text-center px-0 mb-2 mb-md-0">

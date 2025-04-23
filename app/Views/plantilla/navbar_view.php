@@ -29,7 +29,7 @@
                     </a>
                     <a class="nav-link <?= ($active == 'terminos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
                     href="<?= base_url('terminos') ?>">
-                        Terminos y Usos
+                        Términos y Usos
                     </a>
                     <a class="nav-link <?= ($active == 'productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
                     href="<?= base_url('productos') ?>">

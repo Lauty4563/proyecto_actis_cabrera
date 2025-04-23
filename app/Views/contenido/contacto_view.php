@@ -9,7 +9,7 @@ data-bs-theme="dark">
             <p class="p-5 mb-0">
                 <b> Nombre del Titular: </b> Actis Lautaro <br/>
                 <b> Razón Social: </b> Sport Corrientes SRL <br/>
-                <b> Domicilio Legal: </b> [Dirección Completa, Ciudad, País] <br/>
+                <b> Domicilio Legal: </b> 9 de Julio 1700, Corrientes Capital, Argentina <br/>
                 <b> Teléfono: </b> +54 794 597030 <br/>
                 <b> Email: </b> sportcorrientes@gmail.com <br/>
                 <b> Horario de Atención: </b> Lunes a Viernes, 9:00 AM – 6:00 PM <br/>
@@ -49,5 +49,17 @@ data-bs-theme="dark">
             </div>
             <button type="submit" class="btn btn-primary mb-2">Enviar</button>
         </form>
+    </div>
+
+    <div class="container pt-3 d-flex justify-content-center">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3540.0750781757515!2d-58.831931237404824!3d-27.46692191301753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1745434537602!5m2!1ses-419!2sar" 
+            width="80%" 
+            height="300" 
+            style="border:0; box-shadow: 0 0 5px 2px gray;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
 </div>
