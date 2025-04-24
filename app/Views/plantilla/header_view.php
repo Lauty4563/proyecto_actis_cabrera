@@ -42,7 +42,7 @@
                     <form id="formRegistro">
                         <div class="col-12">
                             <div
-                                style="font-size: 16px ;letter-spacing: 0.2rem; inter">
+                                style="font-size: 16px ;letter-spacing: 0.2rem;">
                                 DATOS DE USUARIO
                             </div>
                             <div class="row">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="col-12">
                             <div
-                                style="font-size: 16px ;letter-spacing: 0.2rem; inter">
+                                style="font-size: 16px ;letter-spacing: 0.2rem;">
                                 DATOS DE ENVIO
                             </div>
                             <div class="row">
