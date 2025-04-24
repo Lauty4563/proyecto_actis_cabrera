@@ -26,26 +26,13 @@
     <h4>EXPLORÁ POR GÉNERO</h4>
   </div>
 
-  <div class="card-group" data-bs-theme="dark">
-  <div class="card">
-    <img src="./assets/img/mujer.jpg" class="card-img-top" alt="...">
+  <div class="row w-100" data-bs-theme="dark">
+    
+    <img src="./assets/img/mujer.jpg" class="col-4 img-categoria" alt="categoria_mujer">
+    
+    <img src="./assets/img/hombre.jpg" class="col-4 img-categoria" alt="categoria_hombre">
 
-  </div>
-  <div class="card">
-    <img src="./assets/img/hombre.jpg" class="card-img-top" alt="...">
-    <div class="card-body p-0">
-      <h5 class="card-title"></h5>
-      <p class="card-text"></p>
-      <p class="card-text"><small class="text-body-secondary"></small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="./assets/img/kids.jpg" class="card-img-top" alt="...">
-    <div class="card-body p-0">
-      <h5 class="card-title"></h5>
-      <p class="card-text"></p>
-      <p class="card-text"><small class="text-body-secondary"></small></p>
-    </div>
+    <img src="./assets/img/kids.jpg" class="col-4 img-categoria" alt="categoria_niños">
   </div>
 </div>
 </div>

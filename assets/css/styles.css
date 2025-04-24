@@ -16,6 +16,15 @@
 
 /*              */
 
+.img-categoria {
+    transition: all 0.2s;
+}
+
+.img-categoria:hover {
+    transform: scale(1.2);
+}
+    
+
 .logo {
     width: 60px;
 }
