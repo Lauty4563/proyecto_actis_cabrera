@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 
     <!-- Enlaces a JavaScript -->
     <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
@@ -17,10 +19,25 @@
     <script defer> document.addEventListener('DOMContentLoaded', function () {AOS.init();}); </script>
 </head>
 <body class="p-sm-0 container-lg d-flex flex-column min-vh-100 bg-dark text-white">
-    <header class="container-fluid d-flex">
-        <img class="img-fluid logo " src="./assets/img/logomarca_dark.png" />
+    <header class="container-fluid d-flex align-items-center">
+        <img class="img-fluid logo" src="./assets/img/logoempresa.png" />
+
         <div class="ms-auto d-flex align-items-center">
             <img class="carrito" src="./assets/img/carrito.png" />
+
+                <!-- Icono de búsqueda -->
+            <button class="btn btn-outline-primary ms-3" id="searchIcon">
+                <i class="fas fa-search"></i>
+            </button>
+
+            <!-- Barra de búsqueda oculta por defecto -->
+            <form class="d-flex ms-3" id="searchForm" action="#" method="GET"  onsubmit="return false;" style="display: none;">
+                <input class="form-control me-2" type="search" name="query" placeholder="Buscar..." aria-label="Buscar">
+                <button class="btn btn-outline-primary" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+
             <button type="button" class="btn btn-dark ms-3 border-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">
                 Registrarse
             </button>
@@ -29,7 +46,9 @@
             </button>
         </div>
     </header>
-    
+
+
+
     <!-- Modal Registro -->
     <div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="registroLabel" aria-hidden="true" data-bs-theme="dark">
         <div class="modal-dialog mi-modal inter">
@@ -145,6 +164,25 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('searchIcon').addEventListener('click', function() {
+            var searchForm = document.getElementById('searchForm');
+            var searchIcon = document.getElementById('searchIcon');
+            
+            // Alterna la visibilidad de la barra de búsqueda
+            searchForm.classList.toggle('show');
+            
+            // Alterna la visibilidad del icono de búsqueda
+            if (searchForm.classList.contains('show')) {
+                // Cuando la barra de búsqueda se despliega, ocultamos el icono
+                searchIcon.style.display = 'none';
+            } else {
+                // Cuando la barra de búsqueda se oculta, mostramos el icono nuevamente
+                searchIcon.style.display = 'block';
+            }
+        });
+    </script>
 
 
 <!--
