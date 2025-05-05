@@ -1,8 +1,7 @@
 <div class="d-flex align-items-center justify-content-center py-4 bg-contacto">
     <h1 data-aos="fade-down"><?= $titulo ?></h1>
 </div>
-<div class="container-fluid row mx-auto justify-content-evenly my-4 g-3"
-data-bs-theme="dark">
+<div class="container row mx-auto justify-content-evenly my-4 g-3" data-bs-theme="dark">
     <div class="col-md-5 border" data-aos="zoom-in">
         <div class="">
             <h2 class="text-center pt-3">Datos de la Empresa</h2>
@@ -52,8 +51,8 @@ data-bs-theme="dark">
     </div>
 
     <div class="my-5 text-center">
-    <h4>Nos encontramos en:</h4>
-</div>
+        <h4>Nos encontramos en:</h4>
+    </div>
 
     <div class="container pt-3 d-flex justify-content-center" data-aos="zoom-in">
         <iframe 

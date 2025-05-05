@@ -18,32 +18,34 @@
     <script defer src="./assets/js/aos.js"></script>
     <script defer> document.addEventListener('DOMContentLoaded', function () {AOS.init();}); </script>
 </head>
-<body class="p-sm-0 container-lg d-flex flex-column min-vh-100 bg-dark text-white">
-    <header class="container-fluid d-flex align-items-center">
-        <img class="img-fluid logo" src="./assets/img/logoempresa.png" />
+<body class="p-sm-0 d-flex flex-column min-vh-100 bg-dark text-white">
+    <header class="container-fluid d-flex align-items-center bg-dark-2">
+        <div class="container d-flex align-items-center">
+            <img class="img-fluid logo" src="./assets/img/logoempresa.png" />
 
-        <div class="ms-auto d-flex align-items-center">
-            <img class="carrito" src="./assets/img/carrito.png" />
+            <div class="ms-auto d-flex align-items-center">
+                <img class="carrito" src="./assets/img/carrito.png" />
 
-                <!-- Icono de búsqueda -->
-            <button class="btn btn-outline-primary ms-3" id="searchIcon">
-                <i class="fas fa-search"></i>
-            </button>
-
-            <!-- Barra de búsqueda oculta por defecto -->
-            <form class="d-flex ms-3" id="searchForm" action="#" method="GET"  onsubmit="return false;" style="display: none;">
-                <input class="form-control me-2" type="search" name="query" placeholder="Buscar..." aria-label="Buscar">
-                <button class="btn btn-outline-primary" type="submit">
+                    <!-- Icono de búsqueda -->
+                <button class="btn btn-outline-primary ms-3" id="searchIcon">
                     <i class="fas fa-search"></i>
                 </button>
-            </form>
 
-            <button type="button" class="btn btn-dark ms-3 border-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">
-                Registrarse
-            </button>
-            <button type="button" class="btn btn-dark border border-secondary bg-gradient ms-2" data-bs-toggle="modal" data-bs-target="#modalIngreso">
-                Ingresar
-            </button>
+                <!-- Barra de búsqueda oculta por defecto -->
+                <form class="d-flex ms-3" id="searchForm" action="#" method="GET"  onsubmit="return false;" style="display: none;">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Buscar..." aria-label="Buscar">
+                    <button class="btn btn-outline-primary" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+
+                <button type="button" class="btn btn-dark ms-3 border-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">
+                    Registrarse
+                </button>
+                <button type="button" class="btn btn-dark border border-secondary bg-gradient ms-2" data-bs-toggle="modal" data-bs-target="#modalIngreso">
+                    Ingresar
+                </button>
+            </div>
         </div>
     </header>
 

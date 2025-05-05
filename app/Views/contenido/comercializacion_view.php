@@ -1,4 +1,4 @@
-<div class="container-fluid inter">
+<div class="container inter">
 
   <!-- Sección 1 -->
   <div class="row align-items-center mb-5 mb-md-0">

@@ -214,3 +214,8 @@ footer {
 .card-body {
     background-color: rgb(180, 156, 156);
 }
+
+.bg-dark-2 {
+    background-color: rgb(40, 49, 58);
+    background:  linear-gradient(45deg, rgb(39, 47, 56), rgb(57, 71, 85), rgb(39, 47, 56));
+}

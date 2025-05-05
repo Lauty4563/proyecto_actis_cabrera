@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<navbar class="navbar navbar-expand-lg navbar-dark bg-dark" >
-        <div class="container-fluid">
+<navbar class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark-2" >
+        <div class="container">
             <a class="navbar-brand text-white dm-sans" href="<?= base_url('/') ?>"
                 style="letter-spacing: 1.5px">
                     Sport Corrientes
@@ -43,3 +43,4 @@
             </div>
         </div>
 </navbar>
+</header>
