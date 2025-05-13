@@ -87,6 +87,15 @@
     letter-spacing: 10px;
 }
 
+.bg-consultas {
+    height: 300px;
+    background-image: url("../img/contacto.png");
+    background-size: cover;
+    background-position: 0 20%;
+    color: white;
+    letter-spacing: 10px;
+}
+
 .text-shadow {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }

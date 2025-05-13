@@ -35,7 +35,7 @@
 
   <div class="container-lg d-flex flex-wrap justify-content-center gap-3 p-3">
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=1' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/oferta1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -48,9 +48,9 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=2' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/otoño1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -63,9 +63,9 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=3' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/oferta2.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -78,9 +78,9 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=4' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/otoño3.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -93,9 +93,9 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=5' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/oferta3.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -108,9 +108,9 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=6' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/otoño2.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -123,9 +123,9 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=7' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/oferta1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -138,9 +138,9 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
-    <div class="card p-2 bg-transparent border-secondary" style="width: 14rem; height: 24rem;">
+    <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=8' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/otoño1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
         <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
@@ -153,7 +153,7 @@
           </button>
         </div>
       </div>
-    </div>
+    </a>
 
   </div>
 
