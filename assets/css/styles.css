@@ -180,26 +180,15 @@ footer {
 }
 
 #searchForm {
-    transition: max-width 0.3s ease-in-out;  /* Para una transición suave */
-    max-width: 0;  /* Inicialmente no se muestra */
-    overflow: hidden;  /* Oculta los elementos fuera del límite */
+    transition: max-width 0.3s ease-in-out; 
+    max-width: 0;  
+    overflow: hidden;  
 }
 
 #searchForm.show {
-    max-width: 400px;  /* O cualquier tamaño que desees para la barra de búsqueda */
+    max-width: 400px;  
 }
 
-/* Ajustar el tamaño del carousel */
-#carouselOfertas {
-    height: 350px; /* Ajusta la altura según sea necesario */
-}
-
-/* Asegurarse que las imágenes no distorsionen y se ajusten correctamente */
-#carouselOfertas .carousel-inner img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
 
 .card {
     transition: transform 0.3s, box-shadow 0.3s;
@@ -213,6 +202,7 @@ footer {
 
 .card-body {
     background-color: rgb(180, 156, 156);
+    min-height: 140px;
 }
 
 .bg-dark-2 {

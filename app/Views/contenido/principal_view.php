@@ -38,98 +38,114 @@
 
 <hr class="mt-5" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
 
-
 <section id="ofertas" class="container-fluid mt-3">
-  <div class="row align-items-center mt-5">
-    <div class="col-md-3" data-aos="fade-right">
+  <div class="row align-items-center container-fluid mt-5">
+    <!-- Imagen a la izquierda -->
+    <div class="col-md-3 d-flex justify-content-center" data-aos="fade-right">
       <img src="./assets/img/ofertas.jpg" alt="Ofertas" class="img-fluid">
     </div>
 
-    <div class="col-md-9">
-      <div class="row g-3">
-        <!-- Card 1 -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card">
-            <img src="./assets/img/oferta1.jpg" class="card-img-top" alt="Oferta 1">
-            <div class="card-body">
-              <h5 class="card-title">Zapatillas Nike Air Max Hombre</h5>
-              <p class="card-text">$199.999 20%off</p>
+    <!-- Carrusel de cards -->
+    <div class="col-md-9 container-fluid">
+      <div id="carouselOfertas" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row g-3 container-fluid">
+              <!-- Card 1 -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                  <img src="./assets/img/oferta1.jpg" class="card-img-top img-fluid" alt="Oferta 1">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Zapatillas Nike Air Max Hombre</h5>
+                    <p class="card-text">$199.999 20% off</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card">
+                  <img src="./assets/img/oferta2.jpg" class="card-img-top img-fluid" alt="Oferta 2">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Zapatillas Running Puma</h5>
+                    <p class="card-text">$89.999 40% off</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="card">
+                  <img src="./assets/img/oferta3.jpg" class="card-img-top img-fluid" alt="Oferta 3">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Zapatillas Puma Park Lifestyle</h5>
+                    <p class="card-text">$119.999 30% off</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row g-3 container-fluid">
+              <!-- Card 1 -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                  <img src="./assets/img/oferta1.jpg" class="card-img-top img-fluid" alt="Oferta 1">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Zapatillas Nike Air Max Hombre</h5>
+                    <p class="card-text">$199.999 20% off</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card">
+                  <img src="./assets/img/oferta2.jpg" class="card-img-top img-fluid" alt="Oferta 2">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Zapatillas Running Puma</h5>
+                    <p class="card-text">$89.999 40% off</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
+                <div class="card">
+                  <img src="./assets/img/oferta3.jpg" class="card-img-top img-fluid" alt="Oferta 3">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                    <h5 class="card-title">Zapatillas Puma Park Lifestyle</h5>
+                    <p class="card-text">$119.999 30% off</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Card 2 -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="card">
-            <img src="./assets/img/oferta2.jpg" class="card-img-top" alt="Oferta 2">
-            <div class="card-body">
-              <h5 class="card-title">Zapatillas Running Puma</h5>
-              <p class="card-text">$89.999 40%off</p>
-            </div>
-          </div>
-        </div>
+        <!-- Controles -->
+        <!-- Botón Anterior -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselOfertas" data-bs-slide="prev">
+            <i class="fas fa-circle-chevron-left fa-2x text-dark"></i>
+            <span class="visually-hidden">Anterior</span>
+          </button>
 
-        <!-- Card 3 -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-          <div class="card">
-            <img src="./assets/img/oferta3.jpg" class="card-img-top" alt="Oferta 3">
-            <div class="card-body">
-              <h5 class="card-title">Zapatillas Puma Park Lifestyle</h5>
-              <p class="card-text">$119.999 30%off</p>
-            </div>
-          </div>
-        </div>
+          <!-- Botón Siguiente -->
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselOfertas" data-bs-slide="next">
+            <i class="fas fa-circle-chevron-right fa-2x text-dark"></i>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
       </div>
     </div>
-</section>
-
-<section id="temporada-otoño" class="container-fluid mt-3 mb-5">
-  <div class="row align-items-center mt-5">
-
-    <div class="col-md-9">
-      <div class="row g-3">
-        <!-- Card 1 -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card h-100">
-            <img src="./assets/img/otoño1.jpg" class="card-img-top" alt="Oferta 1">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <h5 class="card-title">Campera Running Puma Mesh</h5>
-              <p class="card-text">$199.999 20% off</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="card h-100">
-            <img src="./assets/img/otoño2.jpg" class="card-img-top" alt="Oferta 2">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <h5 class="card-title">Buzo Training Kion Skill</h5>
-              <p class="card-text">$89.999 40% off</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-          <div class="card h-100">
-            <img src="./assets/img/otoño3.jpg" class="card-img-top" alt="Oferta 3">
-            <div class="card-body d-flex flex-column justify-content-between">
-              <h5 class="card-title">Remera Training Hang Loose</h5>
-              <p class="card-text">$119.999 30% off</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Imagen a la derecha -->
-    <div class="col-md-3" data-aos="fade-left">
-      <img src="./assets/img/tempOtoño.jpg" alt="Ofertas" class="img-fluid">
-    </div>
-
   </div>
 </section>
+
+
 
 
 <hr class="my-5" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
