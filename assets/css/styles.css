@@ -87,6 +87,15 @@
     letter-spacing: 10px;
 }
 
+.bg-consultas {
+    height: 300px;
+    background-image: url("../img/contacto.png");
+    background-size: cover;
+    background-position: 0 20%;
+    color: white;
+    letter-spacing: 10px;
+}
+
 .text-shadow {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
@@ -155,6 +164,46 @@
     width: 100%; /* Expansión de derecha a izquierda (o cambia a "left: 0" para misma dirección) */
 }
 
+.nav-op2 {
+    position: relative;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px transparent;
+    margin: 0 2px;
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    padding: 0 8px;
+    transition: color 0.4s, background-color 0.4s;
+    height: 100%;
+}
+
+/* Pseudoelementos para los bordes animados */
+.nav-op2::before,
+.nav-op2::after {
+    content: '';
+    position: absolute;
+    height: 1px; /* Grosor del borde (como en tu código) */
+    width: 0; /* Inicialmente invisibles */
+    background-color: lightskyblue; /* Color del borde */
+    transition: width 0.4s ease; /* Animación del ancho */
+}
+  
+/* Borde inferior */
+.nav-op2::after {
+    bottom: 0;
+    right: 0; /* Para efecto espejo (opcional) */
+}
+  
+/* Efecto hover (igual que tu código, pero con animación) */
+.nav-op2:hover {
+    color: lightskyblue !important;
+    background-color: rgb(48, 54, 59) !important;
+}
+  
+.nav-op2:hover::after {
+    width: 100%; /* Expansión de derecha a izquierda (o cambia a "left: 0" para misma dirección) */
+}
+
 @media (min-width: 576px) {
     .mi-modal {
         max-width: 75% !important;
@@ -196,7 +245,7 @@ footer {
   
 .card:hover {
   transform: scale(1.05) !important;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 0 16px rgba(148, 148, 148, 0.3) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
@@ -208,4 +257,9 @@ footer {
 .bg-dark-2 {
     background-color: rgb(40, 49, 58);
     background:  linear-gradient(45deg, rgb(39, 47, 56), rgb(57, 71, 85), rgb(39, 47, 56));
+}
+
+.nav-categorias {
+    background-color: rgb(105, 129, 153);
+    height: 40px;
 }
