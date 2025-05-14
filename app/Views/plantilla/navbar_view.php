@@ -35,10 +35,6 @@
                     href="<?= base_url('productos') ?>">
                         Productos
                     </a>
-                    <a class="nav-link <?= ($active == 'consultas') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                    href="<?= base_url('consultas') ?>">
-                        Consultas
-                    </a>
                 </div>
             </div>
         </div>
