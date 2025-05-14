@@ -38,132 +38,129 @@
 
 <hr class="mt-5" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
 
-<div class="swiper">
-  
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-    </div>
+<section class="container-fluid mt-3">
+    <div class="row align-items-center container-fluid mt-5">
 
-    <div class="swiper-pagination"></div>
-
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-
-    <div class="swiper-scrollbar"></div>
-</div>
-
-
-<section id="ofertas" class="container-fluid mt-3">
-  <div class="row align-items-center container-fluid mt-5">
-    <!-- Imagen a la izquierda -->
-    <div class="col-md-3 d-flex justify-content-center" data-aos="fade-right">
-      <img src="./assets/img/ofertas.jpg" alt="Ofertas" class="img-fluid">
-    </div>
-
-    <!-- Carrusel de cards -->
-    <div class="col-md-9 container-fluid">
-      <div id="carouselOfertas" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="row g-3 container-fluid">
-              <!-- Card 1 -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card">
-                  <img src="./assets/img/oferta1.jpg" class="card-img-top img-fluid" alt="Oferta 1">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">Zapatillas Nike Air Max Hombre</h5>
-                    <p class="card-text">$199.999 20% off</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2 -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="card">
-                  <img src="./assets/img/oferta2.jpg" class="card-img-top img-fluid" alt="Oferta 2">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">Zapatillas Running Puma</h5>
-                    <p class="card-text">$89.999 40% off</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="card">
-                  <img src="./assets/img/oferta3.jpg" class="card-img-top img-fluid" alt="Oferta 3">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">Zapatillas Puma Park Lifestyle</h5>
-                    <p class="card-text">$119.999 30% off</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="row g-3 container-fluid">
-              <!-- Card 1 -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card">
-                  <img src="./assets/img/oferta1.jpg" class="card-img-top img-fluid" alt="Oferta 1">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">Zapatillas Nike Air Max Hombre</h5>
-                    <p class="card-text">$199.999 20% off</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2 -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="card">
-                  <img src="./assets/img/oferta2.jpg" class="card-img-top img-fluid" alt="Oferta 2">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">Zapatillas Running Puma</h5>
-                    <p class="card-text">$89.999 40% off</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 3 -->
-              <div class="col-md-4" data-aos="fade-up" data-aos-delay="600">
-                <div class="card">
-                  <img src="./assets/img/oferta3.jpg" class="card-img-top img-fluid" alt="Oferta 3">
-                  <div class="card-body d-flex flex-column justify-content-between">
-                    <h5 class="card-title">Zapatillas Puma Park Lifestyle</h5>
-                    <p class="card-text">$119.999 30% off</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div class="col-md-3 d-flex align-items-center justify-content-center" data-aos="fade-right">
+            <img src="./assets/img/ofertas.jpg" alt="Ofertas" class="img-fluid">
         </div>
 
-        <!-- Controles -->
-        <!-- Botón Anterior -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselOfertas" data-bs-slide="prev">
-            <i class="fas fa-circle-chevron-left fa-2x text-dark"></i>
-            <span class="visually-hidden">Anterior</span>
-          </button>
+        <div class="swiper mySwiper col-md-9">
+            
+            <div class="swiper-wrapper">
 
-          <!-- Botón Siguiente -->
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselOfertas" data-bs-slide="next">
-            <i class="fas fa-circle-chevron-right fa-2x text-dark"></i>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
-      </div>
+                <div class="swiper-slide p-2">
+                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=1' ?>" style="width: 14rem;">
+                        <img src="./assets/img/oferta1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
+                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
+                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
+                                Zapatillas Nike Air Max Hombre
+                            </h5>
+                            <div class="card-text d-flex align-items-center justify-content-between">
+                                <p class="mb-0 text-white fs-6"><strong> ARS$ 199,99 </strong></p>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
+                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide p-2">
+                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=2' ?>" style="width: 14rem;">
+                        <img src="./assets/img/otoño1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
+                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
+                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
+                                Campera Running Puma Mesh
+                            </h5>
+                            <div class="card-text d-flex align-items-center justify-content-between">
+                                <p class="mb-0 text-white fs-6"><strong> ARS$ 199.99 </strong></p>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
+                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide p-2">
+                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=3' ?>" style="width: 14rem;">
+                        <img src="./assets/img/oferta2.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
+                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
+                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
+                                Zapatillas Running Puma
+                            </h5>
+                            <div class="card-text d-flex align-items-center justify-content-between">
+                                <p class="mb-0 text-white fs-6"><strong> ARS$ 89.99 </strong></p>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
+                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide p-2">
+                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=4' ?>" style="width: 14rem;">
+                        <img src="./assets/img/otoño3.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
+                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
+                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
+                                Remera Training Hang Loose
+                            </h5>
+                            <div class="card-text d-flex align-items-center justify-content-between">
+                                <p class="mb-0 text-white fs-6"><strong> ARS$ 119.99 </strong></p>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
+                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide p-2">
+                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=5' ?>" style="width: 14rem;">
+                        <img src="./assets/img/oferta3.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
+                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
+                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
+                                Zapatillas Puma Park Lifestyle
+                            </h5>
+                            <div class="card-text d-flex align-items-center justify-content-between">
+                                <p class="mb-0 text-white fs-6"><strong> ARS$ 119.99 </strong></p>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
+                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="swiper-slide p-2">
+                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=6' ?>" style="width: 14rem;">
+                        <img src="./assets/img/otoño2.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
+                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
+                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
+                            Buzo Training Kion Skill
+                            </h5>
+                            <div class="card-text d-flex align-items-center justify-content-between">
+                                <p class="mb-0 text-white fs-6"><strong> ARS$ 89.99 </strong></p>
+                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
+                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Botones de navegación -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
     </div>
-  </div>
+
 </section>
-
-
-
 
 <hr class="my-5" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
 

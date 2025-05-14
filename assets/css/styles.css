@@ -16,18 +16,15 @@
 
 /* Código CSS para SwiperJS */
 
-.swiper {
-    width: 600px;
-    height: 300px;
-}
-
 .swiper-slide {
-    background-color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
+    width: 100%;
 }
+
+
 
 /*              */
 
@@ -256,10 +253,11 @@ footer {
 
 .card {
     transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 20;
 }
   
 .card:hover {
-  transform: scale(1.05) !important;
+  transform: scale(1.04) !important;
   box-shadow: 0 0 16px rgba(148, 148, 148, 0.3) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
