@@ -14,6 +14,21 @@
     font-style: normal;
 }
 
+/* Código CSS para SwiperJS */
+
+.swiper {
+    width: 600px;
+    height: 300px;
+}
+
+.swiper-slide {
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
 /*              */
 
 .img-categoria {

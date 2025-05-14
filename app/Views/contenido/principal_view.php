@@ -38,6 +38,23 @@
 
 <hr class="mt-5" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
 
+<div class="swiper">
+  
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <div class="swiper-scrollbar"></div>
+</div>
+
+
 <section id="ofertas" class="container-fluid mt-3">
   <div class="row align-items-center container-fluid mt-5">
     <!-- Imagen a la izquierda -->
@@ -256,14 +273,4 @@
 
 </div>
 
-<style>
-.text-shadow {
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-}
-</style>
-
-
-<script>
-  AOS.init();
-</script>
 </div>

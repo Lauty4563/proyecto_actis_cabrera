@@ -12,13 +12,16 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
     <link rel="stylesheet" href="./assets/css/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/swiper-bundle.min.css">
 
 
     <!-- Enlaces a JavaScript -->
     <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
     <script defer src="./assets/js/aos.js"></script>
-    <script defer> document.addEventListener('DOMContentLoaded', function () {AOS.init();}); </script>
+    <script defer src="./assets/js/swiper-bundle.min.js"></script>
+    <script defer src="./assets/js/inicializar-complementos.js"></script>
 </head>
+
 <body class="p-sm-0 d-flex flex-column min-vh-100 bg-dark text-white">
     <header class="container-fluid d-flex align-items-center bg-dark-2">
         <div class="container d-flex align-items-center">
