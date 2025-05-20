@@ -13,3 +13,4 @@ $routes->get('terminos', 'Terminos::index');
 $routes->get('catalogo', 'Catalogo::index');
 $routes->get('productos', 'Productos::index');
 $routes->get('detalles', 'Detalles::index');
+$routes->post('mensaje', 'Contacto::guardar');

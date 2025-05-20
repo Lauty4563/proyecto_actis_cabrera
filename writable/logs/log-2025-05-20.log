@@ -1,0 +1,314 @@
+CRITICAL - 2025-05-20 13:11:57 --> Error: Class "App\Models\MensajesModel" not found
+[Method: POST, Route: mensaje]
+in APPPATH\Controllers\Contacto.php on line 22.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-20 13:14:12 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:202
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php(202): mysqli->real_connect('localhost', '', '', '', 3306, '', 0)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-20 13:14:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+[Method: POST, Route: mensaje]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mensajes` (`nombre_mensaje`, `email_mensaje`, `telefono_mensaje`, `asunto_mensaje`, `texto_mensaje`) VALUES (:nombre_mensaje:, :email_mensaje:, :telefono_mensaje:, :asunto_mensaje:, :texto_mensaje:)', [...], false)
+ 3 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 6 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 7 APPPATH\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-20 13:21:13 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:202
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php(202): mysqli->real_connect('localhost', '', '', 'bd_actis_cabrer...', 3306, '', 0)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-20 13:21:13 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+[Method: POST, Route: mensaje]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mensajes` (`nombre_mensaje`, `email_mensaje`, `telefono_mensaje`, `asunto_mensaje`, `texto_mensaje`) VALUES (:nombre_mensaje:, :email_mensaje:, :telefono_mensaje:, :asunto_mensaje:, :texto_mensaje:)', [...], false)
+ 3 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 6 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 7 APPPATH\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-20 13:21:42 --> Error connecting to the database: mysqli_sql_exception: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:202
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php(202): mysqli->real_connect('localhost', '', '', 'bd_actis_cabrer...', 3306, '', 0)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user ''@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-20 13:21:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user ''@'localhost' (using password: NO)
+[Method: POST, Route: mensaje]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mensajes` (`nombre_mensaje`, `email_mensaje`, `telefono_mensaje`, `asunto_mensaje`, `texto_mensaje`) VALUES (:nombre_mensaje:, :email_mensaje:, :telefono_mensaje:, :asunto_mensaje:, :texto_mensaje:)', [...], false)
+ 3 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 6 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 7 APPPATH\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-20 13:24:49 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'admin'@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:202
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php(202): mysqli->real_connect('localhost', 'admin', '', 'bd_actis_cabrer...', 3306, '', 0)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\proyecto_actis_cabrera\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#3 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#4 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(839): CodeIgniter\Model->doInsert(Array)
+#5 C:\xampp\htdocs\proyecto_actis_cabrera\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, false)
+#6 C:\xampp\htdocs\proyecto_actis_cabrera\system\BaseModel.php(750): CodeIgniter\Model->insert(Array, false)
+#7 C:\xampp\htdocs\proyecto_actis_cabrera\app\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save(Array)
+#8 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+#9 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+#10 C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\proyecto_actis_cabrera\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\proyecto_actis_cabrera\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-05-20 13:24:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+[Method: POST, Route: mensaje]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `mensajes` (`nombre_mensaje`, `email_mensaje`, `telefono_mensaje`, `asunto_mensaje`, `texto_mensaje`) VALUES (:nombre_mensaje:, :email_mensaje:, :telefono_mensaje:, :asunto_mensaje:, :texto_mensaje:)', [...], false)
+ 3 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(839): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], false)
+ 6 SYSTEMPATH\BaseModel.php(750): CodeIgniter\Model->insert([...], false)
+ 7 APPPATH\Controllers\Contacto.php(32): CodeIgniter\BaseModel->save([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->guardar()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2025-05-20 13:30:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-05-20 13:47:11 --> TypeError: Unsupported operand types: array * int
+[Method: GET, Route: contacto]
+in APPPATH\Controllers\Contacto.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 13:47:15 --> TypeError: Unsupported operand types: array * int
+[Method: GET, Route: contacto]
+in APPPATH\Controllers\Contacto.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 13:58:37 --> ArgumentCountError: Too few arguments to function App\Controllers\Contacto::index(), 0 passed in C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: contacto]
+in APPPATH\Controllers\Contacto.php on line 9.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 13:59:25 --> ArgumentCountError: Too few arguments to function App\Controllers\Contacto::index(), 0 passed in C:\xampp\htdocs\proyecto_actis_cabrera\system\CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: contacto]
+in APPPATH\Controllers\Contacto.php on line 9.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 14:06:19 --> ErrorException: Undefined variable $guardado
+[Method: GET, Route: contacto]
+in APPPATH\Views\contenido\contacto_view.php on line 30.
+ 1 APPPATH\Views\contenido\contacto_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $guardado', 'C:\\xampp\\htdocs\\proyecto_actis_cabrera\\app\\Views\\contenido\\contacto_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\proyecto_actis_cabrera\\app\\Views\\contenido\\contacto_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('./contenido/contacto_view', [], true)
+ 5 APPPATH\Controllers\BaseController.php(60): view('./contenido/contacto_view', [...])
+ 6 APPPATH\Controllers\Contacto.php(16): App\Controllers\BaseController->cargarVista('./contenido/contacto_view', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 14:06:45 --> ErrorException: Undefined variable $guardado
+[Method: GET, Route: contacto]
+in APPPATH\Views\contenido\contacto_view.php on line 30.
+ 1 APPPATH\Views\contenido\contacto_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $guardado', 'C:\\xampp\\htdocs\\proyecto_actis_cabrera\\app\\Views\\contenido\\contacto_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(224): include('C:\\xampp\\htdocs\\proyecto_actis_cabrera\\app\\Views\\contenido\\contacto_view.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('./contenido/contacto_view', [], true)
+ 5 APPPATH\Controllers\BaseController.php(60): view('./contenido/contacto_view', [...])
+ 6 APPPATH\Controllers\Contacto.php(16): App\Controllers\BaseController->cargarVista('./contenido/contacto_view', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 14:08:25 --> ParseError: syntax error, unexpected token ")"
+[Method: GET, Route: contacto]
+in APPPATH\Views\contenido\contacto_view.php on line 30.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('./contenido/contacto_view', [], true)
+ 3 APPPATH\Controllers\BaseController.php(60): view('./contenido/contacto_view', [...])
+ 4 APPPATH\Controllers\Contacto.php(16): App\Controllers\BaseController->cargarVista('./contenido/contacto_view', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-05-20 14:08:26 --> ParseError: syntax error, unexpected token ")"
+[Method: GET, Route: contacto]
+in APPPATH\Views\contenido\contacto_view.php on line 30.
+ 1 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('./contenido/contacto_view', [], true)
+ 3 APPPATH\Controllers\BaseController.php(60): view('./contenido/contacto_view', [...])
+ 4 APPPATH\Controllers\Contacto.php(16): App\Controllers\BaseController->cargarVista('./contenido/contacto_view', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Contacto->index()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacto))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
