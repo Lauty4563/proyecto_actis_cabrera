@@ -26,9 +26,21 @@
 
     <div class="col-md-6 border" data-bs-theme="dark" data-aos="zoom-in">
 
-        <?php if (true) : ?>
-            <div class="alert alert-success container" role="alert">
-                Su mensaje ha sido guardado Correctamente
+        <?php if (!empty($mensaje_consulta)) : ?>
+            <div class="alert alert-success mt-2" role="alert">
+                <?= esc($mensaje_consulta) ?>
+            </div>
+        <?php endif ?>
+
+        <?php if (!empty($validation)) : ?>
+            <div class="alert alert-danger mt-2" role="alert">
+                <ul>
+                    <?php foreach($validation as $error) : ?>
+                        <li>
+                            <?= esc($error) ?>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
             </div>
         <?php endif ?>
 

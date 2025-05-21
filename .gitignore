@@ -1,1 +1,11 @@
 writable/debugbar/debugbar_*.json
+
+# Ignorar archivos de log de CodeIgniter
+writable/logs/*.log
+
+# Ignorar archivos de sesión
+writable/session/*
+
+# También podés ignorar todo el contenido de logs y session excepto el index.html (si existe para evitar errores al faltar el directorio):
+!writable/logs/index.html
+!writable/session/index.html

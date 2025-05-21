@@ -11,30 +11,82 @@ class Contacto extends BaseController
         $data = [
             'titulo' => 'Contacto',
             'active' => 'contacto',
+            'mensaje_consulta' => session()->getFlashdata('mensaje_consulta'),
+            'validation' => session()->getFlashdata('validation')
         ];
 
         $this->cargarVista('./contenido/contacto_view' , $data);
     }
 
 
-public function guardar()
+    public function guardar()
     {
-        $model = new Mensajes_Model();
+        $validation = \Config\Services::validation();
+        $request = \Config\Services::request();
 
-        $data = [
-            'nombre_mensaje'   => $this->request->getPost('nombre'),
-            'email_mensaje'    => $this->request->getPost('email'),
-            'telefono_mensaje' => $this->request->getPost('telefono'),
-            'asunto_mensaje'   => $this->request->getPost('asunto'),
-            'texto_mensaje'    => $this->request->getPost('mensaje'),
-        ];
+        $validation->setRules(
+            [
+                'nombre' => 'required|max_length[50]',
+                'email' => 'required|valid_email',
+                'telefono' => 'required|max_length[10]',
+                'asunto' => 'required|max_length[50]|min_length[10]',
+                'mensaje' => 'required|max_length[500]|min_length[10]'
+            ],
+            [   // Errors
+                'nombre' => [
+                    'required' => 'El nombre es requerido',
+                ],
 
-        $guardado = [ 'guardado' => true ];
+                'email' => [
+                    'required' => 'El correo electrónico es obligatorio',
+                    'valid_email' => 'La dirección de correo debe ser válida'
+                ],
 
-        $model->save($data);
+                'telefono'   => [
+                    'required' => 'El telefono es obligatorio',
+                    "max_length"    => 'El telefono de la consulta debe tener como máximo 10 caracteres'
+                ],
 
-        return redirect()->route('contacto')->with('mensaje_consulta', 'Su consulta se envió exitosamente!');
-        $this->index('./contenido/contacto_view' , $guardado);
+                'asunto' => [
+                    'required' => 'El asunto es requerido',
+                    'min_length' =>'El asunto debe tener como mínimo 10 caracteres',
+                    'max_length' => 'El asunto debe tener como máximo 50 caracteres',
+                ],
+
+                'mensaje' => [
+                    'required' => 'El mensaje es requerido',
+                    'min_length' =>'El mensaje debe tener como mínimo 10 caracteres',
+                    'max_length' => 'El mensaje debe tener como máximo 500 caracteres',
+                ],
+            ]
+        );
+
+        if ($validation->withRequest($request)->run() ){
+
+            $data = [
+                'nombre_mensaje'   => $this->request->getPost('nombre'),
+                'email_mensaje'    => $this->request->getPost('email'),
+                'telefono_mensaje' => $this->request->getPost('telefono'),
+                'asunto_mensaje'   => $this->request->getPost('asunto'),
+                'texto_mensaje'    => $this->request->getPost('mensaje'),
+            ];
+
+            $consulta = new Mensajes_model();
+            $consulta->insert($data);
+
+            return redirect()->route('contacto')->with('mensaje_consulta', 'Su consulta se envió exitosamente!');
+                                
+        } else {
+
+            $data['titulo'] = 'Contacto';
+            $data['validation'] = $validation->getErrors();
+            
+            return redirect()
+                ->route('contacto')
+                ->with('validation', $validation->getErrors())
+                ->withInput();
+        }
+        
     }
 
     public function listado()
