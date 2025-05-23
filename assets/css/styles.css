@@ -275,3 +275,16 @@ footer {
     background-color: rgb(105, 129, 153);
     height: 40px;
 }
+
+/* Efectos para Drift */
+
+.drift-image {
+  cursor: zoom-in;
+}
+
+.drift-zoom-pane {
+  pointer-events: none;
+}
+.drift-zoom-pane.drift-show {
+  pointer-events: auto;
+}

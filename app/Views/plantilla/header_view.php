@@ -13,12 +13,14 @@
     <link rel="stylesheet" href="./assets/css/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/drift-basic.min.css">
 
 
     <!-- Enlaces a JavaScript -->
     <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
     <script defer src="./assets/js/aos.js"></script>
     <script defer src="./assets/js/swiper-bundle.min.js"></script>
+    <script defer src="./assets/js/Drift.min.js"></script>
     <script defer src="./assets/js/inicializar-complementos.js"></script>
 </head>
 
