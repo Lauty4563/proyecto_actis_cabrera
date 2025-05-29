@@ -64,7 +64,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formRegistro">
+                    <form action="registro_usuario" method="post" id="formRegistro">
                         <div class="col-12">
                             <div
                                 style="font-size: 16px ;letter-spacing: 0.2rem;">
@@ -72,22 +72,22 @@
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
-                                    <label for="emailRegistro" class="form-label formulario">Email</label>
-                                    <input type="email" class="form-control" id="emailRegistro" required>
+                                    <label for="email" class="form-label formulario">Email</label>
+                                    <input name="email" type="email" class="form-control" id="emailRegistro" required>
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="nombreRegistro" class="form-label formulario">Nombre de Usuario</label>
-                                    <input type="text" class="form-control" id="nombreRegistro" required>
+                                    <label for="nombre" class="form-label formulario">Nombre de Usuario</label>
+                                    <input name="nombre" type="text" class="form-control" id="nombreRegistro" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
-                                    <label for="passRegistro" class="form-label formulario">Contraseña</label>
-                                    <input type="password" class="form-control" id="passRegistro" required>
+                                    <label for="contrasena" class="form-label formulario">Contraseña</label>
+                                    <input name="contrasena" type="password" class="form-control" id="passRegistro" required>
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="passConfRegistro" class="form-label formulario">Repetir contraseña</label>
-                                    <input type="password" class="form-control" id="passConfRegistro" required>
+                                    <label for="contrasena2" class="form-label formulario">Repetir contraseña</label>
+                                    <input name="contrasena2" type="password" class="form-control" id="passConfRegistro" required>
                                 </div>
                             </div>
                         </div>
@@ -98,32 +98,32 @@
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
-                                    <label for="dniRegistro" class="form-label formulario">DNI</label>
-                                    <input type="number" class="form-control" id="dniRegistro" required>
+                                    <label for="dni" class="form-label formulario">DNI</label>
+                                    <input name="dni" type="number" class="form-control" id="dniRegistro" required>
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="fechaNacRegistro" class="form-label formulario">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fechaNacRegistro" required>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="mb-3 col">
-                                    <label for="direccionRegistro" class="form-label formulario">Dirección</label>
-                                    <input type="text" class="form-control" id="direccionRegistro" required>
-                                </div>
-                                <div class="mb-3 col">
-                                    <label for="provRegistro" class="form-label formulario">Provicia/Estado</label>
-                                    <input type="text" class="form-control" id="provRegistro" required>
+                                    <label for="fecha" class="form-label formulario">Fecha de Nacimiento</label>
+                                    <input name="fecha" type="date" class="form-control" id="fechaNacRegistro" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
-                                    <label for="paisRegistro" class="form-label formulario">Pais</label>
-                                    <input type="text" class="form-control" id="paisRegistro" required>
+                                    <label for="direccion" class="form-label formulario">Dirección</label>
+                                    <input name="direccion" type="text" class="form-control" id="direccionRegistro" required>
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="cpRegistro" class="form-label formulario">Código Postal</label>
-                                    <input type="number" class="form-control" id="cpRegistro" required>
+                                    <label for="provincia" class="form-label formulario">Provicia/Estado</label>
+                                    <input name="provincia" type="text" class="form-control" id="provRegistro" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label for="pais" class="form-label formulario">Pais</label>
+                                    <input name="pais" type="text" class="form-control" id="paisRegistro" required>
+                                </div>
+                                <div class="mb-3 col">
+                                    <label for="codigopostal" class="form-label formulario">Código Postal</label>
+                                    <input name="codigopostal" type="number" class="form-control" id="cpRegistro" required>
                                 </div>
                             </div>
                             <div class="mb-3 col">

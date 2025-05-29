@@ -275,3 +275,45 @@ footer {
     background-color: rgb(105, 129, 153);
     height: 40px;
 }
+
+.swiper-marcas .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.swiper-marcas .swiper-slide img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(40%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-marcas .swiper-slide:hover {
+    transform: scale(1.1);
+}
+
+.swiper-marcas .swiper-slide:hover img {
+    filter: grayscale(0%);
+}
+
+.swiper-marcas .marcas-next,
+.swiper-marcas .marcas-prev {
+    color: #555;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.swiper-marcas .marcas-next::after,
+.swiper-marcas .marcas-prev::after {
+    font-size: 18px;
+    font-weight: bold;
+}

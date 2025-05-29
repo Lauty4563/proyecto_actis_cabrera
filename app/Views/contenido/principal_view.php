@@ -1,5 +1,11 @@
 <div class="container">
 
+<?php if (!empty($mensaje_registro)) : ?>
+            <div class="alert alert-success mt-2" role="alert">
+                <?= esc($mensaje_registro)?>
+            </div>
+        <?php endif ?>
+
 <div>
 <hr class="my-4" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
   <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -171,57 +177,48 @@
 
   <hr class="my-5" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
 
-  <div id="carouselMarcas" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="row justify-content-center">
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Adidas.jpg" class="d-block mx-auto" alt="Marca 1">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Nike.jpg" class="d-block mx-auto" alt="Marca 2">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Puma.jpg" class="d-block mx-auto" alt="Marca 3">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/NewBalance.jpg" class="d-block mx-auto" alt="Marca 4">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Asics.jpg" class="d-block mx-auto" alt="Marca 5">
-        </div>
-      </div>
+
+<div class="swiper swiper-marcas py-4">
+  <div class="swiper-wrapper">
+    <!-- Marca -->
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Adidas.jpg" alt="Adidas">
     </div>
-    <div class="carousel-item">
-      <div class="row justify-content-center">
-        
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Montagne.jpg" class="d-block mx-auto" alt="Marca 6">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/UnderArmour.jpg" class="d-block mx-auto" alt="Marca 7">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Salomon.jpg" class="d-block mx-auto" alt="Marca 8">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Reebok.jpg" class="d-block mx-auto" alt="Marca 9">
-        </div>
-        <div class="col-4 col-sm-2">
-          <img src="./assets/img/Penalty.jpg" class="d-block mx-auto" alt="Marca 10">
-        </div>
-      </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Nike.jpg" alt="Nike">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Puma.jpg" alt="Puma">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/NewBalance.jpg" alt="New Balance">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Asics.jpg" alt="Asics">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Montagne.jpg" alt="Montagne">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/UnderArmour.jpg" alt="Under Armour">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Salomon.jpg" alt="Salomon">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Reebok.jpg" alt="Reebok">
+    </div>
+    <div class="swiper-slide brand-slide">
+      <img src="./assets/img/Penalty.jpg" alt="Penalty">
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselMarcas" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselMarcas" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
+  <!-- Controles -->
+  <div class="swiper-button-next marcas-next"></div>
+  <div class="swiper-button-prev marcas-prev"></div>
 </div>
+
+
   
 <hr class="my-5" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
 

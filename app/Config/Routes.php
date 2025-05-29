@@ -12,5 +12,8 @@ $routes->get('contacto', 'Contacto::index');
 $routes->get('terminos', 'Terminos::index');
 $routes->get('catalogo', 'Catalogo::index');
 $routes->get('productos', 'Productos::index');
+
 $routes->get('detalles', 'Detalles::index');
 $routes->post('mensaje', 'Contacto::guardar');
+
+$routes->post('registro_usuario', 'UsuarioController::add_cliente');
