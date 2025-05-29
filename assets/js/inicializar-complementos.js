@@ -37,6 +37,17 @@ const swiper = new Swiper('.swiper', {
     }
 });
 
+// Inicialización de Drift JS
+
+const drift = new Drift(document.querySelector('#productoZoom'), {
+    paneContainer: document.querySelector('#zoomPane'),
+    inlinePane: false,
+    zoomFactor: 3,
+    containInline: true,
+    hoverBoundingBox: true
+});
+
+
 
 const marcasSwiper = new Swiper('.swiper-marcas', {
 slidesPerView: 5,

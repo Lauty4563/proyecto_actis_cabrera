@@ -276,6 +276,19 @@ footer {
     height: 40px;
 }
 
+/* Efectos para Drift */
+
+.drift-image {
+  cursor: zoom-in;
+}
+
+.drift-zoom-pane {
+  pointer-events: none;
+}
+.drift-zoom-pane.drift-show {
+  pointer-events: auto;
+}
+
 .swiper-marcas .swiper-slide {
     display: flex;
     justify-content: center;
