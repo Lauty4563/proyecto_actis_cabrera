@@ -18,52 +18,68 @@ class UsuarioController extends BaseController
 
         $validation->setRules(
             [
-                'nombre' => 'required|max_length[50]',
+                'usuario' => 'required|max_length[50]',
                 'contrasena' => 'required|min_length[8]',
-                'dni' => 'required|max_length[10]|min_length[7]',
-                'fecha' => 'required|valid_date',
-                'direccion' => 'required',
-                'provincia' => 'required',
-                'pais' =>'required',
-                'codigopostal' => 'required',
-
+                'repetir-contrasena' => 'required|min_length[8]|matches[contrasena]',
+                'dni' => 'max_length[10]|min_length[7]',
+                'fecha' => 'valid_date',
+                'direccion' => 'max_length[500]',
+                'provincia' => 'max_lenght[50]',
+                'pais' =>'max_lenght[50]',
+                'codigopostal' => 'max_lenght[5]',
+                'nombre' => 'max_lenght[50]'
+                'apellido' => 'max_lenght[50]'
             ],
             [   // Errors
-                'nombre' => [
-                    'required' => 'El nombre es requerido',
+                'usuario' => [
+                    'required' => 'El nombre de usuario es requerido',
+                    'max_length' => 'El nombre de usuario supera máximo de caracteres'
                 ],
 
                 'contrasena' => [
                     'required' => 'La contraseña es requerida',
-                    'min_length' => 'debe tener al menos 8 caracteres'
+                    'min_length' => 'Contraseña debe tener al menos 8 caracteres',
+                ],
+
+                'repetir_contrasena' => [
+                    'required' => 'Repetir contraseña es obligatorio',
+                    'min_length' => 'Repetir contraseña debe tenr como mínimo 8 caracteres'
+                    'matches' => 'Las contraseñas no coinciden'
                 ],
 
                 'dni'   => [
-                    'required' => 'El numero de DNI es obligatorio',
                     'max_length'   => 'El DNI debe tener como máximo 10 caracteres',
-                    'min_length' => 'debe tener al menos 7 caracteres',
+                    'min_length' => 'El DNI debe tener al menos 7 caracteres',
                 ],
 
                 'fecha' => [
-                    'required' => 'La fecha de nacimiento es requerida',
-                    'valid_date' =>'Introduzca una fecha valida',
+                    'valid_date' => 'Introduzca una fecha válida',
                 ],
 
                 'direccion' => [
-                    'required' => 'La direccion es requerida',
+                    'max_length' => 'La dirección supera el máximo de caracteres',
                 ],
 
                 'provincia' => [
-                    'required' =>'La provincia es requerida',
+                    'max_length' => 'La provincia supera el máximo de caracteres',
                 ],
 
                 'pais' => [
-                    'required' =>'El pais es requerido',
+                    'max_length' => 'El pais supera el máximo de caracteres',
                 ],
 
                 'codigopostal' => [
-                    'required' =>'El codigo postal es requerido',
+                    'max_length' => 'El código postal supera el máximo de caracteres',
                 ],
+
+                'nombre' => [
+                    'max_length' => 'El nombre supera el máximo de caracteres',
+                ],
+
+                'apellido' => [
+                    'max_length' => 'El apellido supera el máximo de caracteres',
+                ],
+
             ]
         );
 
@@ -71,13 +87,15 @@ class UsuarioController extends BaseController
 
             $data = [
                 'nombre_usuario'   => $this->request->getPost('nombre'),
-                'contrasena_usuario'    => $this->request->getPost('contrasena'),
+                'contrasena_usuario'    => password_hash($request->getPost('contrasena'), PASSWORD_BCRYPT),
                 'dni_usuario' => $this->request->getPost('dni'),
                 'fecha_usuario'   => $this->request->getPost('fecha'),
                 'direccion_usuario'    => $this->request->getPost('direccion'),
                 'provincia_usuario' => $this->request->getPost('provincia'),
                 'pais_usuario'   => $this->request->getPost('pais'),
                 'codigopostal_usuario'    => $this->request->getPost('codigopostal'),
+                'nombre'    => $this->request->getPost('nombre'),
+                'apellido'    => $this->request->getPost('apellido'),
             ];
 
             $usuario = new Usuario_Model();
