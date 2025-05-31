@@ -19,32 +19,40 @@ class UsuarioController extends BaseController
         $validation->setRules(
             [
                 'usuario' => 'required|max_length[50]',
+                'email' => 'required|max_length[50]|is_unique[usuario.email_usuario]',
                 'contrasena' => 'required|min_length[8]',
                 'repetir-contrasena' => 'required|min_length[8]|matches[contrasena]',
-                'dni' => 'max_length[10]|min_length[7]',
-                'fecha' => 'valid_date',
+                'dni' => 'permit_empty|max_length[10]|min_length[7]',
+                'fecha' => 'permit_empty|valid_date',
                 'direccion' => 'max_length[500]',
-                'provincia' => 'max_lenght[50]',
-                'pais' =>'max_lenght[50]',
-                'codigopostal' => 'max_lenght[5]',
-                'nombre' => 'max_lenght[50]'
-                'apellido' => 'max_lenght[50]'
+                'provincia' => 'max_length[50]',
+                'pais' => 'max_length[50]',
+                'codigopostal' => 'max_length[5]',
+                'nombre' => 'max_length[50]',
+                'apellido' => 'max_length[50]'
             ],
             [   // Errors
                 'usuario' => [
                     'required' => 'El nombre de usuario es requerido',
-                    'max_length' => 'El nombre de usuario supera máximo de caracteres'
+                    'max_length' => 'El nombre de usuario supera máximo de caracteres',
                 ],
+
+                'email' => [
+                    'required' => 'El email de usuario es requerido',
+                    'max_length' => 'El email de usuario supera máximo de caracteres',
+                    'is_unique' => 'El eamil ya se encuentra registrado',
+                ],
+
 
                 'contrasena' => [
                     'required' => 'La contraseña es requerida',
                     'min_length' => 'Contraseña debe tener al menos 8 caracteres',
                 ],
 
-                'repetir_contrasena' => [
+                'repetir-contrasena' => [
                     'required' => 'Repetir contraseña es obligatorio',
-                    'min_length' => 'Repetir contraseña debe tenr como mínimo 8 caracteres'
-                    'matches' => 'Las contraseñas no coinciden'
+                    'min_length' => 'Repetir contraseña debe tenr como mínimo 8 caracteres',
+                    'matches' => 'Las contraseñas no coinciden',
                 ],
 
                 'dni'   => [
@@ -86,7 +94,8 @@ class UsuarioController extends BaseController
         if ($validation->withRequest($request)->run() ){
 
             $data = [
-                'nombre_usuario'   => $this->request->getPost('nombre'),
+                'nombre_usuario'   => $this->request->getPost('usuario'),
+                'email_usuario'   => $this->request->getPost('email'),
                 'contrasena_usuario'    => password_hash($request->getPost('contrasena'), PASSWORD_BCRYPT),
                 'dni_usuario' => $this->request->getPost('dni'),
                 'fecha_usuario'   => $this->request->getPost('fecha'),

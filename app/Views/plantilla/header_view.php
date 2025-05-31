@@ -66,76 +66,105 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+
+                    <?php if (!empty($mensaje_registro)) : ?>
+                        <div class="alert alert-success mt-2" role="alert">
+                            <?= esc($mensaje_registro) ?>
+                        </div>
+                    <?php endif ?>
+
+                    <?php if (!empty($validation)) : ?>
+                        <div class="alert alert-danger mt-2" role="alert">
+                            <ul>
+                                <?php foreach($validation as $error) : ?>
+                                    <li>
+                                        <?= esc($error) ?>
+                                    </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    <?php endif ?>
+
                     <form action="registro_usuario" method="post" id="formRegistro">
                         <div class="col-12">
                             <div
                                 style="font-size: 16px ;letter-spacing: 0.2rem;">
-                                DATOS DE USUARIO
+                                DATOS DE USUARIO (Requerido)
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
-                                    <label for="email" class="form-label formulario">Email</label>
-                                    <input name="email" type="email" class="form-control" id="emailRegistro" required>
+                                    <label for="usuario" class="form-label formulario">Nombre de Usuario</label>
+                                    <input name="usuario" type="text" class="form-control" id="usuario" autocomplete="off" required>
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="nombre" class="form-label formulario">Nombre de Usuario</label>
-                                    <input name="nombre" type="text" class="form-control" id="nombreRegistro" required>
+                                    <label for="email" class="form-label formulario">Email</label>
+                                    <input name="email" type="email" class="form-control" id="email" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="contrasena" class="form-label formulario">Contraseña</label>
-                                    <input name="contrasena" type="password" class="form-control" id="passRegistro" required>
+                                    <input name="contrasena" type="password" class="form-control" id="contrasena" autocomplete="off" required>
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="contrasena2" class="form-label formulario">Repetir contraseña</label>
-                                    <input name="contrasena2" type="password" class="form-control" id="passConfRegistro" required>
+                                    <label for="repetir-contrasena" class="form-label formulario">Repetir contraseña</label>
+                                    <input name="repetir-contrasena" type="password" class="form-control" id="repetir-contrasena" autocomplete="off" required>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div
                                 style="font-size: 16px ;letter-spacing: 0.2rem;">
-                                DATOS DE ENVIO
+                                DATOS DE ENVIO (Opcional)
+                            </div>
+                            <div class="row">
+                                <div class="mb-3 col">
+                                    <label for="nombre" class="form-label formulario">Nombre</label>
+                                    <input name="nombre" type="text" class="form-control" id="nombre" autocomplete="off">
+                                </div>
+                                <div class="mb-3 col">
+                                    <label for="apellido" class="form-label formulario">Apellido</label>
+                                    <input name="apellido" type="text" class="form-control" id="apellido" autocomplete="off">
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="dni" class="form-label formulario">DNI</label>
-                                    <input name="dni" type="number" class="form-control" id="dniRegistro" required>
+                                    <input name="dni" type="number" class="form-control" id="dni" autocomplete="off">
                                 </div>
                                 <div class="mb-3 col">
                                     <label for="fecha" class="form-label formulario">Fecha de Nacimiento</label>
-                                    <input name="fecha" type="date" class="form-control" id="fechaNacRegistro" required>
+                                    <input name="fecha" type="date" class="form-control" id="fecha" autocomplete="off">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="direccion" class="form-label formulario">Dirección</label>
-                                    <input name="direccion" type="text" class="form-control" id="direccionRegistro" required>
+                                    <input name="direccion" type="text" class="form-control" id="direccion" autocomplete="off">
                                 </div>
                                 <div class="mb-3 col">
                                     <label for="provincia" class="form-label formulario">Provicia/Estado</label>
-                                    <input name="provincia" type="text" class="form-control" id="provRegistro" required>
+                                    <input name="provincia" type="text" class="form-control" id="provincia" autocomplete="off">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="pais" class="form-label formulario">Pais</label>
-                                    <input name="pais" type="text" class="form-control" id="paisRegistro" required>
+                                    <input name="pais" type="text" class="form-control" id="pais">
                                 </div>
                                 <div class="mb-3 col">
                                     <label for="codigopostal" class="form-label formulario">Código Postal</label>
-                                    <input name="codigopostal" type="number" class="form-control" id="cpRegistro" required>
+                                    <input name="codigopostal" type="number" class="form-control" id="codigopostal" autocomplete="off">
                                 </div>
                             </div>
                             <div class="mb-3 col">
-                                <input type="checkbox" class="" id="terminosRegistro" required>
-                                <label for="terminoRegistro" class="form-label formulario" style="margin-left:5px; margin-top: 10px;font-size: 17px !important">
+                                <input type="checkbox" class="" id="terminosRegistro" autocomplete="off" required>
+                                <label for="terminosRegistro" class="form-label formulario" style="margin-left:5px; margin-top: 10px;font-size: 17px !important">
                                     Aceptar <a href="<?= base_url('terminos') ?>">Terminos y Condiciones de Uso.</a>
                                 </label>
                             </div>
                             <div class="mb-3 col">
-                                <input type="checkbox" class="" id="newsRegistro">
+                                <input type="checkbox" class="" id="newsRegistro" autocomplete="off">
                                 <label for="newsRegistro" class="form-label formulario" style="margin-left:5px;font-size: 17px !important">
                                     Suscribete a nuestro newsletter recibir las mejores ofertas.</a>
                                 </label>
@@ -157,14 +186,21 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+
+                    <?php if (!empty($mensaje_registro)) : ?>
+                        <div class="alert alert-success mt-2" role="alert">
+                            <?= esc($mensaje_registro)?>
+                        </div>
+                    <?php endif ?>
+
                     <form id="formLogin">
                         <div class="mb-3">
-                            <label for="emailLogin" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="emailLogin" required>
+                            <label for="login_email" class="form-label">Email</label>
+                            <input name="login_email" type="email" class="form-control" id="login_email" autocomplete="off" required>
                         </div>
                         <div class="mb-3">
-                            <label for="passLogin" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="passLogin" required>
+                            <label for="login_contrasena" class="form-label">Contraseña</label>
+                            <input name="login_contrasena" type="contrasena" class="form-control" autocomplete="off" id="login_contrasena" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Ingresar</button>
                     </form>

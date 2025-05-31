@@ -1,10 +1,16 @@
 <div class="container">
 
 <?php if (!empty($mensaje_registro)) : ?>
-            <div class="alert alert-success mt-2" role="alert">
-                <?= esc($mensaje_registro)?>
-            </div>
-        <?php endif ?>
+  <div class="alert alert-success mt-4" role="alert">
+      <?= esc($mensaje_registro)?>
+  </div>
+<?php endif ?>
+
+<?php if (!empty($validation)) : ?>
+  <div class="alert alert-danger mt-4" role="alert">
+      Error al registrar usuario.
+  </div>
+<?php endif ?>
 
 <div>
 <hr class="my-4" style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
@@ -254,9 +260,9 @@
     <h1 data-aos="fade-down" class="mb-4 text-white text-shadow">SUSCRIBETE</h1>
     <p class="mb-4 text-white">para recibir novedades y ofertas</p>
 
-    <form action="suscripcion.php" method="POST">
+    <form action="<?= base_url('/') ?>" method="GET">
       <div class="input-group">
-        <input type="email" name="email" class="form-control" placeholder="Ingresá tu email" required>
+        <input type="suscripcion" name="suscripcion" class="form-control" placeholder="Ingresá tu email" id="suscripcion" autocomplete="off" required>
         <button type="submit" class="btn btn-primary">Suscribirme</button>
       </div>
     </form>
