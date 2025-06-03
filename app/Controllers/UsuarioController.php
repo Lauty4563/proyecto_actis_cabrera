@@ -11,7 +11,7 @@ class UsuarioController extends BaseController
         
     }
 
-        public function add_cliente()
+    public function add_cliente()
     {
         $validation = \Config\Services::validation();
         $request = \Config\Services::request();
@@ -119,9 +119,69 @@ class UsuarioController extends BaseController
             
             return redirect()
                 ->route('/')
-                ->with('validation', $validation->getErrors())
+                ->with('validation_registro', $validation->getErrors())
                 ->withInput();
         }
         
+    }
+
+    public function buscar_usuario() 
+    {
+        $validation = \Config\Services::validation();
+        $request = \Config\Services::request();
+        $session = session();
+
+        $validation->setRules(
+            [
+                'login_email' => 'required|valid_email',
+                'login_contrasena' => 'required|min_length[8]',
+            ],
+            [   // Errors
+                'login_email' => [
+                    'required' => 'El email de usuario es requerido',
+                    'valid_email' => 'El email debe ser válido',
+                ],
+                'login_contrasena' => [
+                    'required' => 'La contraseña es requerida',
+                    'min_length' => 'Contraseña debe tener al menos 8 caracteres',
+                ],
+            ]
+        );
+
+        if (!$validation->withRequest($request)->run() ) {
+            
+            return redirect()
+            ->route('/')
+            ->with('validation_login', $validation->getErrors());
+        }
+
+        $email = $request->getPost('login_email');
+        $contrasena = $request->getPost('login_contrasena');
+        $user_Model = new Usuario_Model();
+        $user = $user_Model->where('email_usuario', $email)->first();
+
+        if ($user && password_verify($contrasena, $user['contrasena_usuario'])) {
+            $data = [
+                'id' => $user['id_usuario'],
+                'usuario' => $user['nombre_usuario'],
+                'nombre' => $user['nombre'],
+                'apellido' => $user['apellido'],
+                'perfil' => $user['perfil_id'],
+                'login' => TRUE,
+            ];
+
+            $session->set($data);
+            switch($user['perfil_id']) {
+                case '1': {
+                    return redirect()->to('/');
+                }
+                case '2': {
+                    return redirect()->to('user_admin');
+                }
+            }
+        } else {
+            return redirect()->route('/')->with('mensaje_login', '¡Usuario y/o contraseña incorrecto!');
+        }
+
     }
 }

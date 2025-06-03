@@ -17,3 +17,5 @@ $routes->get('detalles', 'Detalles::index');
 $routes->post('mensaje', 'Contacto::guardar');
 
 $routes->post('registro_usuario', 'UsuarioController::add_cliente');
+$routes->post('login_usuario', 'UsuarioController::buscar_usuario');
+$routes->get('logout', 'UsuarioController::cerrar_sesion');
