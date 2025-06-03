@@ -6,9 +6,15 @@
   </div>
 <?php endif ?>
 
-<?php if (!empty($validation)) : ?>
+<?php if (!empty($mensaje_login)) : ?>
   <div class="alert alert-danger mt-4" role="alert">
-      Error al registrar usuario.
+      <?= esc($mensaje_login)?>
+  </div>
+<?php endif ?>
+
+<?php if (!empty($validation_registro) || !empty($validation_login)) : ?>
+  <div class="alert alert-danger mt-4" role="alert">
+      Error al ingresar datos.
   </div>
 <?php endif ?>
 

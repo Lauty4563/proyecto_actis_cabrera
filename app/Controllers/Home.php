@@ -10,7 +10,9 @@ class Home extends BaseController
             'titulo' => 'Página Principal',
             'active' => 'principal',
             'mensaje_registro' => session()->getFlashdata('mensaje_registro'),
-            'validation' => session()->getFlashdata('validation')
+            'mensaje_login' => session()->getFlashdata('mensaje_login'),
+            'validation_registro' => session()->getFlashdata('validation_registro'),
+            'validation_login' => session()->getFlashdata('validation_login'),
         ];
 
         $this->cargarVista('./contenido/principal_view' , $data);

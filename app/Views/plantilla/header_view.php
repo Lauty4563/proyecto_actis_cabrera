@@ -45,12 +45,24 @@
                     </button>
                 </form>
 
-                <button type="button" class="btn btn-dark ms-3 border-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">
-                    Registrarse
-                </button>
-                <button type="button" class="btn btn-dark border border-secondary bg-gradient ms-2" data-bs-toggle="modal" data-bs-target="#modalIngreso">
-                    Ingresar
-                </button>
+                <?php if(session('login')) : ?>
+                    <div>
+                        <?= session('usuario') ?>
+                    </div>
+                    <a type="button" href="<?= base_url('logout') ?>" class="btn btn-dark ms-3 border-primary">
+                        Logout
+                    </a>
+                <?php else: ?>
+                    <button type="button" class="btn btn-dark ms-3 border-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">
+                        Registrarse
+                    </button>
+                    <button type="button" class="btn btn-dark border border-secondary bg-gradient ms-2" data-bs-toggle="modal" data-bs-target="#modalIngreso">
+                        Ingresar
+                    </button>
+                <?php endif ?>
+
+                
+
             </div>
         </div>
     </header>
@@ -73,10 +85,10 @@
                         </div>
                     <?php endif ?>
 
-                    <?php if (!empty($validation)) : ?>
+                    <?php if (!empty($validation_registro)) : ?>
                         <div class="alert alert-danger mt-2" role="alert">
                             <ul>
-                                <?php foreach($validation as $error) : ?>
+                                <?php foreach($validation_registro as $error) : ?>
                                     <li>
                                         <?= esc($error) ?>
                                     </li>
@@ -187,20 +199,32 @@
                 </div>
                 <div class="modal-body">
 
-                    <?php if (!empty($mensaje_registro)) : ?>
-                        <div class="alert alert-success mt-2" role="alert">
-                            <?= esc($mensaje_registro)?>
+                    <?php if (!empty($mensaje_login)) : ?>
+                        <div class="alert alert-danger mt-2" role="alert">
+                            <?= esc($mensaje_login)?>
                         </div>
                     <?php endif ?>
 
-                    <form id="formLogin">
+                    <?php if (!empty($validation_login)) : ?>
+                        <div class="alert alert-danger mt-2" role="alert">
+                            <ul>
+                                <?php foreach($validation_login as $error) : ?>
+                                    <li>
+                                        <?= esc($error) ?>
+                                    </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    <?php endif ?>
+
+                    <form id="formLogin" action="login_usuario" method="POST">
                         <div class="mb-3">
                             <label for="login_email" class="form-label">Email</label>
                             <input name="login_email" type="email" class="form-control" id="login_email" autocomplete="off" required>
                         </div>
                         <div class="mb-3">
                             <label for="login_contrasena" class="form-label">Contraseña</label>
-                            <input name="login_contrasena" type="contrasena" class="form-control" autocomplete="off" id="login_contrasena" required>
+                            <input name="login_contrasena" type="password" class="form-control" autocomplete="off" id="login_contrasena" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Ingresar</button>
                     </form>
