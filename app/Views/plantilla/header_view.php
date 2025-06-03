@@ -209,6 +209,16 @@
         </div>
     </div>
 
+    <?php if (!empty($mensaje_registro) || !empty($validation)) : ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var modal = new bootstrap.Modal(document.getElementById('modalRegistro'));
+                modal.show();
+            });
+        </script>
+     <?php endif; ?>
+
+
     <script>
         document.getElementById('searchIcon').addEventListener('click', function() {
             var searchForm = document.getElementById('searchForm');

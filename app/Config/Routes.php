@@ -17,3 +17,6 @@ $routes->get('detalles', 'Detalles::index');
 $routes->post('mensaje', 'Contacto::guardar');
 
 $routes->post('registro_usuario', 'UsuarioController::add_cliente');
+
+$routes->get('upload', 'Upload::index');          
+$routes->post('upload/upload', 'Upload::upload'); 
