@@ -33,8 +33,8 @@
                         href="<?= base_url('Registrar producto') ?>">
                             Registrar producto
                         </a>
-                        <a class="nav-link <?= ($active == 'Gestionar Productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                        href="<?= base_url('Gestionar Productos') ?>">
+                        <a class="nav-link <?= ($active == 'gestionar-productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('gestionar_productos') ?>">
                             Gestionar Productos
                         </a>
                     </div>

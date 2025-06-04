@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Productos_Model;
+use App\Models\CategoriaColeccion_Model;
+use App\Models\CategoriaGenero_Model;
+use App\Models\CategoriaPrenda_Model;
 
 class ProductoController extends BaseController
 {
@@ -58,4 +61,29 @@ public function cargar_producto()
 
     return view('form_carga', ['errors' => ['No se pudo subir la imagen.']]);
 }
+
+public function gestionarProductos() 
+{
+    $producto_Model = new Productos_Model();
+    $catColeccion = new CategoriaColeccion_Model();
+    $data['producto'] = $producto_Model
+    ->select('producto.*, c.nombre AS nombre_coleccion, g.nombre AS nombre_genero, p.nombre AS nombre_prenda')
+    ->join('cat_coleccion c', 'c.id = producto.cat_coleccion_id')
+    ->join('cat_genero g', 'g.id = producto.cat_genero_id')
+    ->join('cat_prenda p', 'p.id = producto.cat_prenda_id')
+    ->findAll();
+    $data['titulo'] = 'listar productos';
+    $data['active'] = 'gestionar-productos';
+
+    return $this->cargarVista('./backend/productos/gestionar_productos_view' , $data);
+}
+
+public function activarProducto($id, $estado) 
+{
+    $data = array('activo' => $estado);
+    $producto = new Productos_Model();
+    $producto->update($id, $data);
+    return redirect()->route('gestionar_productos');
+}
+
 }
