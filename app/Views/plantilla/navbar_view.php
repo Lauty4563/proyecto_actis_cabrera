@@ -9,34 +9,66 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link <?= ($active == 'principal') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans underline-animation" 
-                    href="<?= base_url('/') ?>" >
-                        Principal
-                    </a>
-                    <a class="nav-link <?= ($active == 'sobre-nosotros') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                    href="<?= base_url('sobre-nosotros') ?>">
-                        Sobre Nosotros
-                    </a>
-                    <a class="nav-link <?= ($active == 'comercializacion') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                    href="<?= base_url('comercializacion') ?>">
-                        Comercialización
-                    </a>
-                    <a class="nav-link <?= ($active == 'contacto') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                    href="<?= base_url('contacto') ?>">
-                        Contacto
-                    </a>
-                    <a class="nav-link <?= ($active == 'terminos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                    href="<?= base_url('terminos') ?>">
-                        Términos y Usos
-                    </a>
-                    <a class="nav-link <?= ($active == 'productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                    href="<?= base_url('productos') ?>">
-                        Productos
-                    </a>
+
+            <?php if(session('login') == 2) : ?>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link <?= ($active == 'Admin') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans underline-animation" 
+                        href="<?= base_url('/') ?>" >
+                            Admin
+                        </a>
+                        <a class="nav-link <?= ($active == 'Ver consultas') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('sobre-nosotros') ?>">
+                            Ver consultas
+                        </a>
+                        <a class="nav-link <?= ($active == 'Listar productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('comercializacion') ?>">
+                            Listar productos
+                        </a>
+                        <a class="nav-link <?= ($active == 'Listar ventas') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('contacto') ?>">
+                            Listar ventas
+                        </a>
+                        <a class="nav-link <?= ($active == 'Registrar producto') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('Registrar producto') ?>">
+                            Registrar producto
+                        </a>
+                        <a class="nav-link <?= ($active == 'Gestionar Productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('Gestionar Productos') ?>">
+                            Gestionar Productos
+                        </a>
+                    </div>
                 </div>
-            </div>
+
+            <?php else: ?>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link <?= ($active == 'principal') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans underline-animation" 
+                        href="<?= base_url('/') ?>" >
+                            Principal
+                        </a>
+                        <a class="nav-link <?= ($active == 'sobre-nosotros') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('sobre-nosotros') ?>">
+                            Sobre Nosotros
+                        </a>
+                        <a class="nav-link <?= ($active == 'comercializacion') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('comercializacion') ?>">
+                            Comercialización
+                        </a>
+                        <a class="nav-link <?= ($active == 'contacto') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('contacto') ?>">
+                            Contacto
+                        </a>
+                        <a class="nav-link <?= ($active == 'terminos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('terminos') ?>">
+                            Términos y Usos
+                        </a>
+                        <a class="nav-link <?= ($active == 'productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('productos') ?>">
+                            Productos
+                        </a>
+                    </div>
+                </div>
+            <?php endif ?>
         </div>
 </navbar>
-</header>

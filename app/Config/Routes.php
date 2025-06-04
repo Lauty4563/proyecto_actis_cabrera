@@ -13,11 +13,15 @@ $routes->get('terminos', 'Terminos::index');
 $routes->get('catalogo', 'Catalogo::index');
 $routes->get('productos', 'Productos::index');
 
+$routes->get('Admin', 'Admin::index');
+$routes->get('Registrar producto', 'AdminController::index');
+
 $routes->get('detalles', 'Detalles::index');
 $routes->post('mensaje', 'Contacto::guardar');
 
 $routes->post('registro_usuario', 'UsuarioController::add_cliente');
 $routes->post('login_usuario', 'UsuarioController::buscar_usuario');
+$routes->get('user_admin', 'UsuarioController::admin');
 $routes->get('logout', 'UsuarioController::cerrar_sesion');
 
 $routes->get('upload', 'Upload::index');          

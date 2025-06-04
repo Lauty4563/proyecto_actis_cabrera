@@ -14,7 +14,7 @@ class Usuario_Model extends Model
     protected $returnType     = 'array';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['nombre_usuario', 'email_usuario','contrasena_usuario', 'dni_usuario', 'fecha_usuario', 'direccion_usuario', 'provincia_usuario', 'pais_usuario', 'codigopostal_usuario', 'perfil_id', 'nombre', 'apellido', 'imagen_usuario', 'activo', 'soft_delete'];
+    protected $allowedFields = ['nombre_usuario', 'email_usuario','contrasena_usuario', 'dni_usuario', 'fecha_usuario', 'direccion_usuario', 'provincia_usuario', 'pais_usuario', 'codigopostal_usuario', 'perfil_id', 'nombre', 'apellido', 'imagen_usuario', 'activo'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

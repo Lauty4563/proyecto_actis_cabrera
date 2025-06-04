@@ -55,6 +55,7 @@ abstract class BaseController extends Controller
 
     public function cargarVista($vista, $data)
     {
+        $session = session();
         echo view('./plantilla/header_view', $data);
         echo view('./plantilla/navbar_view', $data);
         echo view($vista, $data);
