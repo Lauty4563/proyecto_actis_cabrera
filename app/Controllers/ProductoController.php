@@ -86,4 +86,18 @@ public function activarProducto($id, $estado)
     return redirect()->route('gestionar_productos');
 }
 
+public function editarProducto($id) 
+{
+    $producto_Model = new Productos_Model();
+    $categoriaColeccion = new CategoriaColeccion_Model();
+    $categoriaGenero = new CategoriaGenero_Model();
+    $categoriaPrenda = new CategoriaPrenda_Model();
+    $data['categoria_coleccion'] = $categoriaColeccion->findAll();
+    $data['categoria_genero'] = $categoriaGenero->findAll();
+    $data['categoria_prenda'] = $categoriaPrenda->findAll();
+    $data['producto'] = $producto_Model->where('id_producto', $id)->first();
+
+    return $this->response->setJSON($data);
+}
+
 }

@@ -17,6 +17,9 @@
 
       <tbody>
         <?php foreach($producto as $row) : ?>
+
+          <pre><?php print_r($row); ?></pre>
+
           <tr class="position-relative">
             <td><?php echo $row['nombre_producto'];?></td>
             <td><?php echo $row['precio_producto'];?></td>
@@ -30,9 +33,10 @@
 
             <td><img src="./assets/img/<?php echo $row['imagen_producto'];?>" alt="" width="100" height="100"></td>
             <td>
-              <a class="btn btn-success" href="<?= base_url('editar_producto/'.$row['id_producto']) ?>" style="position: relative;z-index: 4;">
+              <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" 
+              onclick="editarProducto(<?= $row['id_producto'] ?>)" style="position: relative;z-index: 4;">
                 Editar
-              </a>
+              </button>
             </td>
 
             <td>
@@ -55,3 +59,132 @@
       </tbody>
     </table>
 </div>
+
+<!-- Modal Editar -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true"  data-bs-theme="dark">
+    <div class="modal-dialog inter">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editLabel">Editar Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <?php if (!empty($mensaje_login)) : ?>
+                    <div class="alert alert-danger mt-2" role="alert">
+                        <?= esc($mensaje_login)?>
+                    </div>
+                <?php endif ?>
+
+                <?php if (!empty($validation_login)) : ?>
+                    <div class="alert alert-danger mt-2" role="alert">
+                        <ul>
+                            <?php foreach($validation_login as $error) : ?>
+                                <li>
+                                    <?= esc($error) ?>
+                                </li>
+                            <?php endforeach ?>
+                        </ul>
+                    </div>
+                <?php endif ?>
+
+                <?php echo form_open_multipart("actualizar_producto"); ?>
+                    <div class="mb-3">
+                      <label for="edit_nombre" class="form-label">Nombre</label>
+                      <input name="edit_nombre" type="text" class="form-control" id="edit_nombre" autocomplete="off" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="edit_precio" class="form-label">Precio</label>
+                      <input name="edit_precio" type="number" class="form-control" autocomplete="off" id="edit_precio" required>
+                    </div>
+                    <div class="mb-3 row" style="font-size: 12px">
+                      <div class="col-4">
+                        <label for="edit_coleccion" class="form-label">Categoria Coleccion</label>
+                        <select name="edit_coleccion" class="form-select" autocomplete="off" id="edit_coleccion" required></select>
+                      </div>
+                      <div class="col-4">
+                        <label for="edit_genero" class="form-label">Categoria Género</label>
+                        <select name="edit_genero" class="form-select" autocomplete="off" id="edit_genero" required></select>
+                      </div>
+                      <div class="col-4">
+                        <label for="edit_prenda" class="form-label">Categoria Prenda</label>
+                        <select name="edit_prenda" class="form-select" autocomplete="off" id="edit_prenda" required></select>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="edit_descripcion" class="form-label">Descripción</label>
+                      <textarea name="edit_descripcion" type="text" class="form-control" autocomplete="off" id="edit_descripcion" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="edit_stock" class="form-label">Stock</label>
+                      <input name="edit_stock" type="number" class="form-control" autocomplete="off" id="edit_stock" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="edit_imagen" class="form-label">Imagen (Falta)</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Editar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  function editarProducto(id) {
+    fetch('<?= base_url('editar_producto') ?>/' + id)
+    .then(response => response.json())
+    .then(data => {
+      // Eliminar opciones de otras requests
+      document.getElementById('edit_coleccion').innerHTML = null;
+      document.getElementById('edit_genero').innerHTML = null;
+      document.getElementById('edit_prenda').innerHTML = null;
+
+      // Rellenar los input del producto
+      document.getElementById('edit_nombre').value = data.producto.nombre_producto;
+      document.getElementById('edit_precio').value = data.producto.precio_producto;
+      document.getElementById('edit_descripcion').value = data.producto.descripcion_producto;
+      document.getElementById('edit_stock').value = data.producto.stock_producto;
+
+      // Rellenar select de colección
+      const coleccionSelect = document.getElementById('edit_coleccion');
+      data.categoria_coleccion.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.text = cat.nombre;
+        // Marcar seleccionada si coincide con la del producto
+        if (cat.id == data.producto.cat_coleccion_id) {
+          option.selected = true;
+        }
+        coleccionSelect.appendChild(option);
+      });
+
+      // Rellenar select de género
+      const generoSelect = document.getElementById('edit_genero');
+      data.categoria_genero.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.text = cat.nombre;
+        if (cat.id == data.producto.cat_genero_id) {
+          option.selected = true;
+        }
+        generoSelect.appendChild(option);
+      });
+
+      // Rellenar select de prenda
+      const prendaSelect = document.getElementById('edit_prenda');
+      data.categoria_prenda.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.text = cat.nombre;
+        if (cat.id == data.producto.cat_prenda_id) {
+          option.selected = true;
+        }
+        prendaSelect.appendChild(option);
+      });
+
+    })
+    .catch(error => {
+      console.error('Error al obtener los datos:', error);
+    });
+  }
+</script>
