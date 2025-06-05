@@ -14,7 +14,7 @@ $routes->get('catalogo', 'Catalogo::index');
 $routes->get('productos', 'Productos::index');
 
 $routes->get('Admin', 'Admin::index');
-$routes->get('Registrar producto', 'AdminController::index');
+$routes->get('registrar_producto', 'ProductoController::registrarProducto');
 $routes->get('gestionar_productos', 'ProductoController::gestionarProductos');
 $routes->get('activar_producto/(:num)/(:num)', 'ProductoController::activarProducto/$1/$2');
 $routes->get('editar_producto/(:num)', 'ProductoController::editarProducto/$1');

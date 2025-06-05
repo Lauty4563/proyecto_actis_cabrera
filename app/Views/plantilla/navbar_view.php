@@ -29,8 +29,8 @@
                         href="<?= base_url('contacto') ?>">
                             Listar ventas
                         </a>
-                        <a class="nav-link <?= ($active == 'Registrar producto') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                        href="<?= base_url('Registrar producto') ?>">
+                        <a class="nav-link <?= ($active == 'registrar-productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('registrar_producto') ?>">
                             Registrar producto
                         </a>
                         <a class="nav-link <?= ($active == 'gestionar-productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 

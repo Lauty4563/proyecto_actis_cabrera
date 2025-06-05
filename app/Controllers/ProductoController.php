@@ -100,4 +100,19 @@ public function editarProducto($id)
     return $this->response->setJSON($data);
 }
 
+public function registrarProducto() {
+        $producto_Model = new Productos_Model();
+    $catColeccion = new CategoriaColeccion_Model();
+    $data['producto'] = $producto_Model
+    ->select('producto.*, c.nombre AS nombre_coleccion, g.nombre AS nombre_genero, p.nombre AS nombre_prenda')
+    ->join('cat_coleccion c', 'c.id = producto.cat_coleccion_id')
+    ->join('cat_genero g', 'g.id = producto.cat_genero_id')
+    ->join('cat_prenda p', 'p.id = producto.cat_prenda_id')
+    ->findAll();
+    $data['titulo'] = 'listar productos';
+    $data['active'] = 'registrar-productos';
+
+    return $this->cargarVista('./backend/productos/registrar_productos_view' , $data);
+}
+
 }
