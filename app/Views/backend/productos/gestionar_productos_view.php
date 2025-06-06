@@ -1,5 +1,11 @@
 <h1 class="text-center">Listado de Productos</h1>
 
+<?php if (!empty($mensaje_gestion)) : ?>
+    <div class="container alert alert-success mt-2" role="alert" data-bs-theme="dark" style="font-size: larger;">
+        <?= esc($mensaje_gestion)?>
+    </div>
+<?php endif ?>
+
 <div class="container">
     <table id="mytable" class="table table-borbred table-striped table-hover">
       <thead>
@@ -17,9 +23,6 @@
 
       <tbody>
         <?php foreach($producto as $row) : ?>
-
-          <pre><?php print_r($row); ?></pre>
-
           <tr class="position-relative">
             <td><?php echo $row['nombre_producto'];?></td>
             <td><?php echo $row['precio_producto'];?></td>
@@ -70,16 +73,10 @@
             </div>
             <div class="modal-body">
 
-                <?php if (!empty($mensaje_login)) : ?>
-                    <div class="alert alert-danger mt-2" role="alert">
-                        <?= esc($mensaje_login)?>
-                    </div>
-                <?php endif ?>
-
-                <?php if (!empty($validation_login)) : ?>
+                <?php if (!empty($validation_gestion)) : ?>
                     <div class="alert alert-danger mt-2" role="alert">
                         <ul>
-                            <?php foreach($validation_login as $error) : ?>
+                            <?php foreach($validation_gestion as $error) : ?>
                                 <li>
                                     <?= esc($error) ?>
                                 </li>
@@ -88,39 +85,42 @@
                     </div>
                 <?php endif ?>
 
-                <?php echo form_open_multipart("actualizar_producto"); ?>
+                <?php echo form_open_multipart(base_url('actualizar_producto/'.$row['id_producto'])); ?>
+                    <input type="hidden" name="edit_id" value="<?= $row['id_producto'] ?>"/>
                     <div class="mb-3">
                       <label for="edit_nombre" class="form-label">Nombre</label>
-                      <input name="edit_nombre" type="text" class="form-control" id="edit_nombre" autocomplete="off" required>
+                      <input value="<?= old('edit_nombre') ?>" name="edit_nombre" type="text" class="form-control" id="edit_nombre" autocomplete="off" required>
                     </div>
                     <div class="mb-3">
                       <label for="edit_precio" class="form-label">Precio</label>
-                      <input name="edit_precio" type="number" class="form-control" autocomplete="off" id="edit_precio" required>
+                      <input value="<?= old('edit_precio') ?>" name="edit_precio" type="number" class="form-control" autocomplete="off" id="edit_precio" required>
                     </div>
                     <div class="mb-3 row" style="font-size: 12px">
                       <div class="col-4">
                         <label for="edit_coleccion" class="form-label">Categoria Coleccion</label>
-                        <select name="edit_coleccion" class="form-select" autocomplete="off" id="edit_coleccion" required></select>
+                        <select value="<?= old('edit_coleccion') ?>" name="edit_coleccion" class="form-select" id="edit_coleccion" required></select>
                       </div>
                       <div class="col-4">
                         <label for="edit_genero" class="form-label">Categoria Género</label>
-                        <select name="edit_genero" class="form-select" autocomplete="off" id="edit_genero" required></select>
+                        <select value="<?= old('edit_genero') ?>" name="edit_genero" class="form-select" id="edit_genero" required></select>
                       </div>
                       <div class="col-4">
                         <label for="edit_prenda" class="form-label">Categoria Prenda</label>
-                        <select name="edit_prenda" class="form-select" autocomplete="off" id="edit_prenda" required></select>
+                        <select value="<?= old('edit_prenda') ?>" name="edit_prenda" class="form-select" id="edit_prenda" required></select>
                       </div>
                     </div>
                     <div class="mb-3">
                       <label for="edit_descripcion" class="form-label">Descripción</label>
-                      <textarea name="edit_descripcion" type="text" class="form-control" autocomplete="off" id="edit_descripcion" required></textarea>
+                      <textarea name="edit_descripcion" type="text" class="form-control" autocomplete="off" id="edit_descripcion" required><?= old('edit_descripcion') ?></textarea>
                     </div>
                     <div class="mb-3">
                       <label for="edit_stock" class="form-label">Stock</label>
-                      <input name="edit_stock" type="number" class="form-control" autocomplete="off" id="edit_stock" required>
+                      <input value="<?= old('edit_stock') ?>" name="edit_stock" type="number" class="form-control" autocomplete="off" id="edit_stock" required>
                     </div>
                     <div class="mb-3">
-                      <label for="edit_imagen" class="form-label">Imagen (Falta)</label>
+                      <label for="edit_imagen" class="form-label">Imagen</label>
+                      <img id="imagen" src="./assets/img/<?= $row['imagen_producto']?>" alt="imagen" height="100" width="100" />
+                      <?php echo form_input(['name'=>'edit_imagen', 'id'=> 'edit_imagen', 'type'=>'file']); ?>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Editar</button>
                 </form>
@@ -144,6 +144,7 @@
       document.getElementById('edit_precio').value = data.producto.precio_producto;
       document.getElementById('edit_descripcion').value = data.producto.descripcion_producto;
       document.getElementById('edit_stock').value = data.producto.stock_producto;
+      document.getElementById('imagen').src = './assets/img/' + data.producto.imagen_producto;
 
       // Rellenar select de colección
       const coleccionSelect = document.getElementById('edit_coleccion');
@@ -188,3 +189,59 @@
     });
   }
 </script>
+
+<?php if (!empty($validation_gestion)) : ?>
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        var modal = new bootstrap.Modal(document.getElementById('modalEditar'));
+        modal.show();
+    });
+
+    fetch('<?= base_url('editar_producto') ?>/' + <?= old('edit_id') ?> )
+    .then(response => response.json())
+    .then(data => {;
+
+      // Rellenar select de colección
+      const coleccionSelect = document.getElementById('edit_coleccion');
+      data.categoria_coleccion.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.text = cat.nombre;
+        // Marcar seleccionada si coincide con la del producto
+        if (cat.id == data.producto.cat_coleccion_id) {
+          option.selected = true;
+        }
+        coleccionSelect.appendChild(option);
+      });
+
+      // Rellenar select de género
+      const generoSelect = document.getElementById('edit_genero');
+      data.categoria_genero.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.text = cat.nombre;
+        if (cat.id == data.producto.cat_genero_id) {
+          option.selected = true;
+        }
+        generoSelect.appendChild(option);
+      });
+
+      // Rellenar select de prenda
+      const prendaSelect = document.getElementById('edit_prenda');
+      data.categoria_prenda.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.text = cat.nombre;
+        if (cat.id == data.producto.cat_prenda_id) {
+          option.selected = true;
+        }
+        prendaSelect.appendChild(option);
+      });
+
+    })
+    .catch(error => {
+      console.error('Error al obtener los datos:', error);
+    });
+  </script>
+<?php endif; ?>
