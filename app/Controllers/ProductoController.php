@@ -102,6 +102,26 @@ public function editarProducto($id)
     return $this->response->setJSON($data);
 }
 
+public function listarProductos() {
+    $producto_Model = new Productos_Model();
+    $categoriaColeccion = new CategoriaColeccion_Model();
+    $categoriaGenero = new CategoriaGenero_Model();
+    $categoriaPrenda = new CategoriaPrenda_Model();
+    $data['categorias_coleccion'] = $categoriaColeccion->findAll();
+    $data['categorias_genero'] = $categoriaGenero->findAll();
+    $data['categorias_prenda'] = $categoriaPrenda->findAll();
+    $data['productos'] = $producto_Model
+    ->select('producto.*, c.nombre AS nombre_coleccion, g.nombre AS nombre_genero, p.nombre AS nombre_prenda')
+    ->join('cat_coleccion c', 'c.id = producto.cat_coleccion_id')
+    ->join('cat_genero g', 'g.id = producto.cat_genero_id')
+    ->join('cat_prenda p', 'p.id = producto.cat_prenda_id')
+    ->findAll();
+    $data['titulo'] = 'listar productos';
+    $data['active'] = 'productos';
+
+    return $this->cargarVista('./contenido/productos_view' , $data);
+}
+
 public function registrarProducto() 
 {
     $producto_Model = new Productos_Model();

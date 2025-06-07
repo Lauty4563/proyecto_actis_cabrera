@@ -11,7 +11,7 @@ $routes->get('comercializacion', 'Comercializacion::index');
 $routes->get('contacto', 'Contacto::index');
 $routes->get('terminos', 'Terminos::index');
 $routes->get('catalogo', 'Catalogo::index');
-$routes->get('productos', 'Productos::index');
+$routes->get('productos', 'ProductoController::listarProductos');
 
 $routes->get('Admin', 'Admin::index');
 $routes->get('registrar_producto', 'ProductoController::registrarProducto');
