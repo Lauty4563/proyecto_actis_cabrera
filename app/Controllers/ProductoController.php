@@ -11,31 +11,28 @@ class ProductoController extends BaseController
 {
     protected $helpers = ['form', 'url'];
 
-    public function index()
-    {
-        return view('form_carga', ['errors' => []]);
-    }
-
    
 public function cargar_producto()
 {
     helper(['form']);
 
     $validationRule = [
-        'userfile' => [
-            'label' => 'Imagen del producto',
-            'rules' => 'uploaded[userfile]|is_image[userfile]|mime_in[userfile,image/jpg,image/jpeg,image/png]|max_size[userfile,2048]',
-        ],
-        'nombre_producto' => 'required',
-        'precio_producto' => 'required|decimal',
-        'stock_producto' => 'required|integer',
-    ];
+    'imagen_producto' => [
+        'label' => 'Imagen del producto',
+        'rules' => 'uploaded[imagen_producto]|is_image[imagen_producto]|mime_in[imagen_producto,image/jpg,image/jpeg,image/png]|max_size[imagen_producto,2048]',
+    ],
+    'nombre_producto' => 'required',
+    'precio_producto' => 'required|decimal',
+    'stock_producto' => 'required|integer',
+];
+
 
     if (! $this->validate($validationRule)) {
-        return view('form_carga', ['errors' => $this->validator->getErrors()]);
+        return view('backend/productos/registrar_productos_view', ['errors' => $this->validator->getErrors()]);
+
     }
 
-    $img = $this->request->getFile('userfile');
+    $img = $this->request->getFile('imagen_producto');
 
     if (! $img->hasMoved()) {
         $newName = $img->getRandomName();
@@ -56,10 +53,13 @@ public function cargar_producto()
             'soft_delete'          => 0,
         ]);
 
-        return view('carga_exitosa');
+        return redirect()->to('registrar_producto')->with('success', '¡Producto cargado con éxito!');
     }
 
-    return view('form_carga', ['errors' => ['No se pudo subir la imagen.']]);
+    return view('backend/productos/registrar_productos_view', [
+        'errors' => ['No se pudo subir la imagen.']
+    ]);
+
 }
 
 public function gestionarProductos() 

@@ -30,7 +30,10 @@
             <img class="img-fluid logo" src="./assets/img/logoempresa.png" />
 
             <div class="ms-auto d-flex align-items-center">
-                <img class="carrito" src="./assets/img/carrito.png" />
+                <a href="<?= base_url('ver_carrito') ?>">
+                    <img class="carrito" src="<?= base_url('assets/img/carrito.png') ?>" alt="Carrito" />
+                </a>
+
 
                     <!-- Icono de búsqueda -->
                 <button class="btn btn-outline-primary ms-3" id="searchIcon">

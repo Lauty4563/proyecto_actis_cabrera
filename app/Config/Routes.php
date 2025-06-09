@@ -19,6 +19,11 @@ $routes->get('gestionar_productos', 'ProductoController::gestionarProductos');
 $routes->get('activar_producto/(:num)/(:num)', 'ProductoController::activarProducto/$1/$2');
 $routes->get('editar_producto/(:num)', 'ProductoController::editarProducto/$1');
 $routes->post('actualizar_producto/(:num)', 'ProductoController::actualizarProducto/$1');
+$routes->post('productos/guardar', 'ProductoController::guardar');
+$routes->post('cargar_producto', 'ProductoController::cargar_producto');
+
+$routes->get('upload', 'Upload::index');          
+$routes->post('upload/upload', 'Upload::upload'); 
 
 $routes->get('detalles', 'Detalles::index');
 $routes->post('mensaje', 'Contacto::guardar');
@@ -28,5 +33,8 @@ $routes->post('login_usuario', 'UsuarioController::buscar_usuario');
 $routes->get('user_admin', 'UsuarioController::admin');
 $routes->get('logout', 'UsuarioController::cerrar_sesion');
 
-$routes->get('upload', 'Upload::index');          
-$routes->post('upload/upload', 'Upload::upload'); 
+$routes->get('ver_consultas', 'Contacto::consultas');
+$routes->post('responder_consulta', 'Contacto::responder_consulta');
+
+$routes->get('ver_carrito', 'CarritoController::ver_carrito');
+

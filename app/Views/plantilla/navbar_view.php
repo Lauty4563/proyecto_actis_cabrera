@@ -13,12 +13,12 @@
             <?php if(session('login') == 2) : ?>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
-                        <a class="nav-link <?= ($active == 'Admin') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans underline-animation" 
-                        href="<?= base_url('/') ?>" >
+                        <a class="nav-link <?= ($active == 'principal') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans underline-animation" 
+                        href="<?= base_url('user_admin') ?>" >
                             Admin
                         </a>
-                        <a class="nav-link <?= ($active == 'Ver consultas') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                        href="<?= base_url('sobre-nosotros') ?>">
+                        <a class="nav-link <?= ($active == 'ver-consultas') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('ver_consultas') ?>">
                             Ver consultas
                         </a>
                         <a class="nav-link <?= ($active == 'Listar productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 

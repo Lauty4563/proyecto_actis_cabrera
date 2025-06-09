@@ -22,7 +22,8 @@
         </div>
     <?php endif; ?>
 
-    <form action="<?= base_url('productos/guardar') ?>" method="post" enctype="multipart/form-data">
+
+    <form action="<?= base_url('cargar_producto') ?>" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="nombre_producto" class="form-label">Nombre del producto</label>
             <input type="text" class="form-control" id="nombre_producto" name="nombre_producto" required>

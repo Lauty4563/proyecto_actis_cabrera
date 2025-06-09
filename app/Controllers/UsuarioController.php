@@ -185,19 +185,28 @@ class UsuarioController extends BaseController
 
     }
 
-    public function admin() 
-    {
-        $data = [
-            'titulo' => 'Página Principal',
-            'active' => 'principal',
-            'mensaje_registro' => session()->getFlashdata('mensaje_registro'),
-            'mensaje_login' => session()->getFlashdata('mensaje_login'),
-            'validation_registro' => session()->getFlashdata('validation_registro'),
-            'validation_login' => session()->getFlashdata('validation_login'),
-        ];
+    public function admin()
+{
+    $usuarioModel = new \App\Models\Usuario_Model();
+    $productoModel = new \App\Models\Productos_Model();
+    $mensajeModel = new \App\Models\Mensajes_Model();
 
-        $this->cargarVista('./contenido/admin_view' , $data);
-    }
+    $data = [
+        'titulo' => 'Panel de Administración',
+        'active' => 'principal',
+        'totalUsuarios' => $usuarioModel->where('activo', 1)->countAllResults(),
+        'totalProductos' => $productoModel->where('activo', 1)->countAllResults(),
+        'totalMensajes' => $mensajeModel->countAll(),
+        'ultimosMensajes' => $mensajeModel->orderBy('id_mensaje', 'DESC')->limit(5)->findAll(),
+        'mensaje_registro' => session()->getFlashdata('mensaje_registro'),
+        'mensaje_login' => session()->getFlashdata('mensaje_login'),
+        'validation_registro' => session()->getFlashdata('validation_registro'),
+        'validation_login' => session()->getFlashdata('validation_login'),
+    ];
+
+    $this->cargarVista('./contenido/admin_view', $data);
+}
+
 
     public function cerrar_sesion() 
     {

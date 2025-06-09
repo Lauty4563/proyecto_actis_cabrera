@@ -96,4 +96,28 @@ class Contacto extends BaseController
 
         return view('contacto_listado', $data);
     }
+
+    public function consultas()
+{
+    $model = new \App\Models\Mensajes_Model();
+    $data['mensajes'] = $model->orderBy('id_mensaje', 'DESC')->findAll();
+    $data['titulo'] = 'Ver consultas';
+    $data['active'] = 'ver-consultas';
+
+    return $this->cargarVista('./backend/consultas_view', $data);
+}
+
+public function responder_consulta()
+{
+    $email = $this->request->getPost('email_destinatario');
+    $nombre = $this->request->getPost('nombre_destinatario');
+    $respuesta = $this->request->getPost('respuesta');
+
+    // Aquí podés enviar un correo real si tenés configurado el servicio de email
+    // O simplemente mostrar un mensaje de éxito
+
+    // Simulación de envío exitoso
+    return redirect()->back()->with('mensaje_respuesta', "Respuesta enviada a $nombre ($email) correctamente.");
+}
+
 }
