@@ -17,10 +17,15 @@
     <?php endif; ?>
 
     <?php if(session()->getFlashdata('errors')): ?>
-        <div class="alert alert-danger">
-            <?= session()->getFlashdata('errors') ?>
-        </div>
+    <div class="alert alert-danger">
+        <ul class="mb-0">
+            <?php foreach(session()->getFlashdata('errors') as $error): ?>
+                <li><?= esc($error) ?></li>
+            <?php endforeach ?>
+        </ul>
+    </div>
     <?php endif; ?>
+
 
 
     <form action="<?= base_url('cargar_producto') ?>" method="post" enctype="multipart/form-data">
@@ -50,22 +55,36 @@
         </div>
 
         <div class="mb-3">
-            <label for="cat_coleccion" class="form-label">Colección</label>
-            <input type="text" class="form-control" id="cat_coleccion" name="cat_coleccion">
-        </div>
-
-        <div class="mb-3">
-            <label for="cat_genero" class="form-label">Género</label>
-            <select class="form-select" id="cat_genero" name="cat_genero">
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
-                <option value="Unisex">Unisex</option>
+            <label for="categoria_coleccion" class="form-label">Colección</label>
+            <select value="<?= old('categoria_coleccion') ?>" id="categoria_coleccion" class="form-select" name="cat_coleccion">
+                <?php foreach($categoria_coleccion as $c) : ?>
+                    <option value="<?= $c['id']?>">
+                        <?= $c['nombre'] ?>
+                    </option>
+                <?php endforeach ?>
             </select>
         </div>
 
         <div class="mb-3">
-            <label for="cat_prenda" class="form-label">Tipo de prenda</label>
-            <input type="text" class="form-control" id="cat_prenda" name="cat_prenda">
+            <label for="categoria_genero" class="form-label">Genero</label>
+            <select value="<?= old('categoria_genero') ?>" id="categoria_genero" class="form-select" name="cat_genero">
+                <?php foreach($categoria_genero as $g) : ?>
+                    <option value="<?= $g['id']?>">
+                        <?= $g['nombre'] ?>
+                    </option>
+                <?php endforeach ?>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="categoria_prenda" class="form-label">Tipo de prenda</label>
+            <select value="<?= old('categoria_prenda') ?>" id="categoria_prenda" class="form-select" name="cat_prenda">
+                <?php foreach($categoria_prenda as $p) : ?>
+                    <option value="<?= $p['id']?>">
+                        <?= $p['nombre'] ?>
+                    </option>
+                <?php endforeach ?>
+            </select>
         </div>
 
         <div class="form-check form-switch mb-3">

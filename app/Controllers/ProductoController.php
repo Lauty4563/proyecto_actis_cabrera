@@ -16,36 +16,73 @@ public function cargar_producto()
 {
     helper(['form']);
 
-    $validationRule = [
-    'imagen_producto' => [
-        'label' => 'Imagen del producto',
-        'rules' => 'uploaded[imagen_producto]|is_image[imagen_producto]|mime_in[imagen_producto,image/jpg,image/jpeg,image/png]|max_size[imagen_producto,2048]',
-    ],
-    'nombre_producto' => 'required',
-    'precio_producto' => 'required|decimal',
-    'stock_producto' => 'required|integer',
-];
+    $validation = \Config\Services::validation();
+    $request = \Config\Services::request();
+
+    $validation->setRules(
+        [
+            'nombre_producto' => 'max_length[50]',
+            'precio_producto' => 'numeric|greater_than_equal_to[0]',
+            'descripcion_producto' => 'max_length[255]',
+            'cat_coleccion' => 'integer',
+            'cat_prenda' => 'integer',
+            'cat_genero' => 'integer',
+            'stock_producto' => 'integer|greater_than_equal_to[0]',
+            'imagen_producto' => 'permit_empty|is_image[imagen]|max_size[imagen,2048]|mime_in[imagen,image/jpg,image/jpeg,image/png,image/webp]'
+        ],
+        [   // Errores personalizados
+            'nombre_producto' => [
+                'max_length' => 'El nombre no debe superar los 50 caracteres',
+            ],
+            'precio_producto' => [
+                'numeric' => 'El precio debe ser un número',
+                'greater_than_equal_to' => 'El precio no puede ser negativo',
+            ],
+            'descripcion_producto' => [
+                'max_length' => 'La descripción no debe superar los 255 caracteres',
+            ],
+            'cat_coleccion' => [
+                'integer' => 'La categoría de coleccion debe ser un número válido',
+            ],
+            'cat_prenda' => [
+                'integer' => 'La categoría de prenda debe ser un número válido',
+            ],
+            'cat_genero' => [
+                'max_length' => 'La categoría de genero debe ser un número válido',
+            ],
+            'stock_producto' => [
+                'integer' => 'El stock debe ser un número entero',
+                'greater_than_equal_to' => 'El stock no puede ser negativo',
+            ],
+            'imagen_producto' => [
+                'is_image' => 'El archivo debe ser una imagen válida',
+                'max_size' => 'La imagen no debe superar los 2MB',
+                'mime_in' => 'La imagen debe ser de tipo JPG, JPEG, PNG o WEBP',
+            ],
+        ]
+    );
 
 
-    if (! $this->validate($validationRule)) {
-        return view('backend/productos/registrar_productos_view', ['errors' => $this->validator->getErrors()]);
-
+    if (! $this->validate($validation->getRules()))
+    {
+        $data['errors'] = $validation->getErrors();
+        return redirect()->to('registrar_producto')->with('errors', $validation->getErrors());
     }
 
     $img = $this->request->getFile('imagen_producto');
 
     if (! $img->hasMoved()) {
         $newName = $img->getRandomName();
-        $img->move(ROOTPATH . 'public/uploads', $newName);
+        $img->move('./assets/img/', $newName);
 
         $productoModel = new Productos_Model();
 
         $productoModel->insert([
             'nombre_producto'      => $this->request->getPost('nombre_producto'),
             'precio_producto'      => $this->request->getPost('precio_producto'),
-            'cat_coleccion'        => $this->request->getPost('cat_coleccion'),
-            'cat_genero'           => $this->request->getPost('cat_genero'),
-            'cat_prenda'           => $this->request->getPost('cat_prenda'),
+            'cat_coleccion_id'        => $this->request->getPost('cat_coleccion'),
+            'cat_genero_id'           => $this->request->getPost('cat_genero'),
+            'cat_prenda_id'           => $this->request->getPost('cat_prenda'),
             'descripcion_producto' => $this->request->getPost('descripcion_producto'),
             'stock_producto'       => $this->request->getPost('stock_producto'),
             'imagen_producto'      => $newName,
@@ -55,10 +92,6 @@ public function cargar_producto()
 
         return redirect()->to('registrar_producto')->with('success', '¡Producto cargado con éxito!');
     }
-
-    return view('backend/productos/registrar_productos_view', [
-        'errors' => ['No se pudo subir la imagen.']
-    ]);
 
 }
 
@@ -125,13 +158,12 @@ public function listarProductos() {
 public function registrarProducto() 
 {
     $producto_Model = new Productos_Model();
-    $catColeccion = new CategoriaColeccion_Model();
-    $data['producto'] = $producto_Model
-    ->select('producto.*, c.nombre AS nombre_coleccion, g.nombre AS nombre_genero, p.nombre AS nombre_prenda')
-    ->join('cat_coleccion c', 'c.id = producto.cat_coleccion_id')
-    ->join('cat_genero g', 'g.id = producto.cat_genero_id')
-    ->join('cat_prenda p', 'p.id = producto.cat_prenda_id')
-    ->findAll();
+    $categoriaColeccion = new CategoriaColeccion_Model();
+    $categoriaGenero = new CategoriaGenero_Model();
+    $categoriaPrenda = new CategoriaPrenda_Model();
+    $data['categoria_coleccion'] = $categoriaColeccion->findAll();
+    $data['categoria_genero'] = $categoriaGenero->findAll();
+    $data['categoria_prenda'] = $categoriaPrenda->findAll();
     $data['titulo'] = 'listar productos';
     $data['active'] = 'registrar-productos';
 
