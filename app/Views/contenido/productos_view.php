@@ -55,10 +55,19 @@
             <p class="mb-0 text-white fs-4">
               <strong><?= $p['precio_producto'] ?> </strong>
             </p>
+
             <?php if(!empty(session('login'))) : ?>
-              <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
-                <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-              </button>
+              <?php echo form_open('add_cart');
+                echo form_hidden('id', $p['id_producto']);
+                echo form_hidden('titulo', $p['nombre_producto']);
+                echo form_hidden('precio', $p['precio_producto']);
+                echo form_hidden('cantidad', '1');
+                echo form_submit('comprar', 'Asd', 'class="btn btn-outline-secondary rounded-pill p-0" style="width: 3.5rem; height: 2rem;"');
+                echo form_close();
+                //<button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
+                //  <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                //</button>
+              ?>
             <?php endif ?>
           </div>
         </div>
@@ -66,6 +75,7 @@
 
     <?php endforeach ?>
 
+    <!--
     <a class="card p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=2' ?>" style="width: 14rem; height: 24rem;">
       <img src="./assets/img/otoño1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
       <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
@@ -172,6 +182,7 @@
     </a>
 
   </div>
+  -->
 
   <hr style="border: 0; height: 2px; background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));">
 

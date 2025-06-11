@@ -37,4 +37,6 @@ $routes->get('ver_consultas', 'Contacto::consultas');
 $routes->post('responder_consulta', 'Contacto::responder_consulta');
 
 $routes->get('ver_carrito', 'CarritoController::ver_carrito');
+$routes->post('add_cart', 'CarritoController::agregar_carrito');
+$routes->get('eliminar_item/(:any)', 'CarritoController::eliminar/$1');
 

@@ -18,12 +18,14 @@
             </tr>
         </thead>
         <tbody>
+
             <?php $total = 0; ?>
             <?php $i = 1; ?>
-            <?php foreach ($cart as $item) { ?>
+            <?php $items = $cart->contents(); ?>
+            <?php foreach ($items as $item) { ?>
                 <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo $item['name']; ?></td>
+                    <td><?= $item['name']; ?></td>
                     <td>$ <?php echo $item['price']; ?></td>
                     <td><?php echo $item['qty']; ?></td>
                     <td><?php echo $item['subtotal']; ?></td>
@@ -37,7 +39,7 @@
                 <td colspan="4">Total Compra:</td>
                 <td>$ <?php echo $total; ?></td>
                 <td>
-                    <a href="<?php echo base_url('vaciar_carrito/all'); ?>" class="btn btn-success">Vaciar Carrito</a>
+                    <a href="<?php echo base_url('eliminar_item/all'); ?>" class="btn btn-success">Vaciar Carrito</a>
                 </td>
             </tr>
             <tr>

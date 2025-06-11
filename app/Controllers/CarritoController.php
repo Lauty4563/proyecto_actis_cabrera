@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Productos_Model;
+use CodeIgniterCart\Cart;
 
 class CarritoController extends BaseController
 {
@@ -19,17 +20,30 @@ class CarritoController extends BaseController
     }
 
     public function agregar_carrito()
-{
+    {
     $cart = \Config\Services::cart();
     $request = \Config\Services::request();
     $data = array(
         'id'    => $request->getPost('id'),
         'name'  => $request->getPost('titulo'),
         'price' => $request->getPost('precio'),
-        'qty'   => 1
+        'qty'   => $request->getPost('cantidad')
     );
     $cart->insert($data);
     // Mensaje que se agregó al carrito
     return redirect()->route('ver_carrito');
-}
+    }
+
+    public function eliminar($rowid) 
+    {
+        $cart = \Config\Services::cart();
+
+        if($rowid == "all") {
+            $cart -> destroy();
+        } else {
+            $cart -> remove($rowid);
+        }
+        
+        return redirect()->route('ver_carrito');
+    }
 }
