@@ -10,7 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <?php if(session('login') == 2) : ?>
+            <?php if(session('perfil') == 2) : ?>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ms-auto">
                         <a class="nav-link <?= ($active == 'principal') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans underline-animation" 

@@ -41,10 +41,10 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Asunto</th>
-                    <th>Mensaje</th>
+                    <th style="background-color: rgb(120, 120, 120); color: white">Nombre</th>
+                    <th style="background-color: rgb(120, 120, 120); color: white">Email</th>
+                    <th style="background-color: rgb(120, 120, 120); color: white">Asunto</th>
+                    <th style="background-color: rgb(120, 120, 120); color: white">Mensaje</th>
                 </tr>
             </thead>
             <tbody>
@@ -52,8 +52,10 @@
                     <tr>
                         <td><?= esc($msg['nombre_mensaje']) ?></td>
                         <td><?= esc($msg['email_mensaje']) ?></td>
-                        <td><?= esc($msg['asunto_mensaje']) ?></td>
-                        <td><?= esc(word_limiter($msg['texto_mensaje'], 10)) ?></td>
+                        <td style=" max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            <?= esc($msg['asunto_mensaje']) ?></td>
+                        <td style=" max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            <?= esc(word_limiter($msg['texto_mensaje'], 10)) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
