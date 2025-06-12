@@ -26,27 +26,24 @@
 
                 <h2><?= $producto['nombre_producto'] ?></h2>
 
-                <p>ARS $<?= $producto['precio_producto'] ?></p>
+                <p class="mb-2"
+                   style="font-size: 28px;"  
+                >ARS $<?= $producto['precio_producto'] ?></p>
 
-                <div>Estrellas</div>
+                <div class="flex mb-5">
+                  <img src="./assets/img/star.png" alt="estrella" width="25">
+                  <img src="./assets/img/star.png" alt="estrella" width="25">
+                  <img src="./assets/img/star.png" alt="estrella" width="25">
+                  <img src="./assets/img/star.png" alt="estrella" width="25">
+                  <img src="./assets/img/star.png" alt="estrella" width="25">
+                </div>
 
-                <div>Stock disponible (<?= $producto['stock_producto'] ?>)</div>
+                <div class="pb-1">Stock disponible (<?= $producto['stock_producto'] ?>)</div>
 
                 <?php echo form_open('add_cart'); ?>
 
-                <div class="dropdown position-static">
-                  <button class="btn btn-warning bg-opacity-50 dropdown-toggle z-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Cantidad
-                  </button>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">1</a></li>
-                    <li><a class="dropdown-item" href="#">2</a></li>
-                    <li><a class="dropdown-item" href="#">3</a></li>
-                  </ul>
-                </div>
-
-                <div class="col-auto">
-                  <select name="cantidad" class="form-select">
+                <div class="col-auto pb-3">
+                  <select name="cantidad" class="form-select btn btn-warning bg-opacity-50 z-0">
                       <option value="1" <?= set_select('cantidad', 1, true) ?>>1 Unidad</option>
                       <option value="2" <?= set_select('cantidad', 2) ?>>2 Unidades</option>
                       <option value="3" <?= set_select('cantidad', 3) ?>>3 Unidades</option>
