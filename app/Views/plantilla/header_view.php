@@ -49,13 +49,24 @@
                 </form>
 
                 <?php if(session('login')) : ?>
-                    <div>
-                        <a href="<?= base_url('perfil') ?>" class="text-white text-decoration-none">
-                            <?= session('usuario') ?>
-                        </a>
-                    </div>
+                    <a href="<?= base_url('mi_perfil') ?>" class="text-white text-decoration-none contenedor-perfil">
+                        <div class="btn btn-dark rounded rounded-start-pill position-relative c-perfil" style="padding-left: 43px;">
+                            <img class="perfil-img rounded-circle position-absolute" 
+                                src="
+                                    <?= empty(session('imagen')) 
+                                    ? './assets/img/perfiles/perfil_default.jpg' 
+                                    : './assets/img/perfiles/' . session('imagen') ?>
+                                " 
+                                width="43" height="43"
+                                style="object-fit: cover; left: -5px; bottom: -3px;"
+                            />
+                            <div>
+                                <?= session('usuario') ?> 
+                            </div>
+                        </div>
+                    </a>
                     <a type="button" href="<?= base_url('logout') ?>" class="btn btn-dark ms-3 border-primary">
-                        Logout
+                        Salir
                     </a>
                 <?php else: ?>
                     <button type="button" class="btn btn-dark ms-3 border-primary" data-bs-toggle="modal" data-bs-target="#modalRegistro">

@@ -32,6 +32,10 @@ $routes->post('registro_usuario', 'UsuarioController::add_cliente');
 $routes->post('login_usuario', 'UsuarioController::buscar_usuario');
 $routes->get('user_admin', 'UsuarioController::admin');
 $routes->get('logout', 'UsuarioController::cerrar_sesion');
+$routes->get('mi_perfil', 'UsuarioController::miPerfil');
+$routes->post('update_envio_user', 'UsuarioController::updateEnvioUser');
+$routes->post('update_imagen_user', 'UsuarioController::updateImagenUser');
+
 
 $routes->get('ver_consultas', 'Contacto::consultas');
 $routes->post('responder_consulta', 'Contacto::responder_consulta');

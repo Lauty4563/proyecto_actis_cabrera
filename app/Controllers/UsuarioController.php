@@ -167,6 +167,7 @@ class UsuarioController extends BaseController
                 'nombre' => $user['nombre'],
                 'apellido' => $user['apellido'],
                 'perfil' => $user['perfil_id'],
+                'imagen' => $user['imagen_usuario'],
                 'login' => TRUE,
             ];
 
@@ -209,9 +210,162 @@ class UsuarioController extends BaseController
 
 
     public function cerrar_sesion() 
-    {
-        $session = session();
-        $session->destroy();
-        return redirect()->route('/');
+{
+    $session = session();
+    $session->destroy();
+    return redirect()->route('/');
+}
+
+    public function miPerfil() 
+{
+    if (!session()->has('id')) {
+        return redirect()->back()->with('mensaje_login', 'Debes iniciar sesión para acceder a tu perfil de usuario.');
     }
+
+    $user_Model = new Usuario_Model();
+    $user = $user_Model->where('id_usuario', session('id'))->first();
+    $data['usuario'] = $user;
+    $data['titulo'] = 'Mi Perfil';
+    $data['active'] = 'mi_perfil';
+    $this->cargarVista('./contenido/mi_perfil_view', $data);
+}
+
+    public function updateEnvioUser() 
+{
+    $validation = \Config\Services::validation();
+    $request = \Config\Services::request();
+
+    $validation->setRules(
+        [
+            'ue_dni' => 'required|max_length[10]|min_length[7]',
+            'ue_fecha' => 'required|valid_date',
+            'ue_direccion' => 'required|max_length[500]',
+            'ue_provincia' => 'required|max_length[50]',
+            'ue_pais' => 'required|max_length[50]',
+            'ue_codigopostal' => 'required|max_length[5]',
+            'ue_nombre' => 'required|max_length[50]',
+            'ue_apellido' => 'required|max_length[50]'
+        ],
+        [   // Errors
+            'ue_dni'   => [
+                'required' => 'El DNI es requerido',
+                'max_length'   => 'El DNI debe tener como máximo 10 caracteres',
+                'min_length' => 'El DNI debe tener al menos 7 caracteres',
+            ],
+
+            'ue_fecha' => [
+                'required' => 'La Fecha es requerida',
+                'valid_date' => 'Introduzca una fecha válida',
+            ],
+
+            'ue_direccion' => [
+                'required' => 'La Dirección es requerida',
+                'max_length' => 'La dirección supera el máximo de caracteres',
+            ],
+
+            'ue_provincia' => [
+                'required' => 'La Provincia es requerida',
+                'max_length' => 'La provincia supera el máximo de caracteres',
+            ],
+
+            'ue_pais' => [
+                'required' => 'El Pais es requerido',
+                'max_length' => 'El pais supera el máximo de caracteres',
+            ],
+
+            'ue_codigopostal' => [
+                'required' => 'El Código Postal es requerido',
+                'max_length' => 'El código postal supera el máximo de caracteres',
+            ],
+
+            'ue_nombre' => [
+                'required' => 'El Nombre es requerido',
+                'max_length' => 'El nombre supera el máximo de caracteres',
+            ],
+
+            'ue_apellido' => [
+                'required' => 'El Apellido es requerido',
+                'max_length' => 'El apellido supera el máximo de caracteres',
+            ],
+
+        ]
+    );
+
+    if ($validation->withRequest($request)->run() ){
+
+        $data = [
+            'dni_usuario' => $this->request->getPost('ue_dni'),
+            'fecha_usuario'   => $this->request->getPost('ue_fecha'),
+            'direccion_usuario'    => $this->request->getPost('ue_direccion'),
+            'provincia_usuario' => $this->request->getPost('ue_provincia'),
+            'pais_usuario'   => $this->request->getPost('ue_pais'),
+            'codigopostal_usuario'    => $this->request->getPost('ue_codigopostal'),
+            'nombre'    => $this->request->getPost('ue_nombre'),
+            'apellido'    => $this->request->getPost('ue_apellido'),
+        ];
+
+        $usuario = new Usuario_Model();
+
+        $usuario->update(session('id'), $data);
+
+        return redirect()->back()->with('mensaje_perfil', '¡Los datos se han cargado correctamente!');
+                            
+    } else {
+        
+        return redirect()
+            ->back()
+            ->with('errors', $validation->getErrors())
+            ->withInput();
+    }
+}
+
+    public function updateImagenUser()
+{
+    $validation = \Config\Services::validation();
+    $request = \Config\Services::request();
+
+    $validation->setRules(
+        [
+            'ui_imagen' => 'uploaded[ui_imagen]|is_image[ui_imagen]|max_size[ui_imagen,2048]|mime_in[ui_imagen,image/jpg,image/jpeg,image/png,image/webp]'        ],
+        [   // Errores
+            'ui_imagen' => [
+                'required' => 'La imagen es requerida',
+                'is_image' => 'El archivo debe ser una imagen válida',
+                'max_size' => 'La imagen no debe superar los 2MB',
+                'mime_in' => 'La imagen debe ser de tipo JPG, JPEG, PNG o WEBP',
+            ],
+        ]
+    );
+
+    if (! $this->validate($validation->getRules()))
+    {
+        $data['errors'] = $validation->getErrors();
+        return redirect()->back()->with('errors', $validation->getErrors());
+    }
+
+    $imagenArchivo = $this->request->getFile('ui_imagen');
+
+    if ($imagenArchivo && $imagenArchivo->isValid() && !$imagenArchivo->hasMoved()) {
+        // Obtener nombre anterior desde la BD
+        $usuarioModel = new Usuario_Model();
+        $usuarioViejo = $usuarioModel->find(session('id'));
+        $imagenAnterior = $usuarioViejo['imagen_usuario'] ?? null;
+
+        // Generar nuevo nombre y mover archivo
+        $nuevoNombre = $imagenArchivo->getRandomName();
+        $imagenArchivo->move('./assets/img/perfiles/', $nuevoNombre);
+        $data['imagen_usuario'] = $nuevoNombre;
+
+        // Eliminar imagen anterior si existe
+        if ($imagenAnterior && file_exists('./assets/img/perfiles/' . $imagenAnterior)) {
+            unlink('./assets/img/perfiles/' . $imagenAnterior);
+        }
+    }
+
+    $usuario = new Usuario_Model();
+    $usuario->update(session('id'), $data);
+    
+    return redirect()->route('mi_perfil');
+}
+
 }

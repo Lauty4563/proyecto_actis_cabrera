@@ -75,7 +75,7 @@ class CarritoController extends BaseController
             empty($usuario['nombre']) ||
             empty($usuario['apellido'])) 
         {
-            return redirect()->route('mi_perfil')->with('error', 'Completa tus datos de envío antes de comprar.');
+            return redirect()->route('mi_perfil')->with('mensaje_perfil', 'Completa tus datos de envío antes de comprar.');
         }
 
         $cart1 = $cart->contents();

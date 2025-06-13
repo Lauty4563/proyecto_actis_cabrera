@@ -334,3 +334,31 @@ footer {
 .categoria-container {
     
 }
+
+.custom-file-upload {
+    display: inline-block;
+    cursor: pointer !important;
+    border: none;
+    background: transparent;
+    padding: 0;
+}
+
+.custom-file-upload img {
+    width: 40px; /* ajustá tamaño */
+    height: auto;
+    cursor: pointer !important;
+}
+
+.custom-file-upload img:focus {
+    cursor: pointer;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.contenedor-perfil:hover img,
+.contenedor-perfil:hover .c-perfil {
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.1);
+}
