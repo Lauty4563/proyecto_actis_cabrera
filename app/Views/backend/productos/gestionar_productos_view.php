@@ -6,8 +6,6 @@
     </div>
 <?php endif ?>
 
-<p>Hola, <?= esc($mensaje_login) ?></p>
-
 <div class="container">
     <table id="mytable" class="table table-borbred table-striped table-hover">
       <thead>
