@@ -85,8 +85,7 @@
                     </div>
                 <?php endif ?>
 
-                <?php echo form_open_multipart(base_url('actualizar_producto/'.$row['id_producto'])); ?>
-                    <input type="hidden" name="edit_id" value="<?= $row['id_producto'] ?>"/>
+                <?php echo form_open_multipart(base_url('actualizar_producto/unproducto'), ['id' => 'edit_formulario']); ?>
                     <div class="mb-3">
                       <label for="edit_nombre" class="form-label">Nombre</label>
                       <input value="<?= old('edit_nombre') ?>" name="edit_nombre" type="text" class="form-control" id="edit_nombre" autocomplete="off" required>
@@ -139,6 +138,8 @@
       document.getElementById('edit_genero').innerHTML = null;
       document.getElementById('edit_prenda').innerHTML = null;
 
+      // Redireccionar correctamente
+      document.getElementById('edit_formulario').action = 'actualizar_producto/' + id;
       // Rellenar los input del producto
       document.getElementById('edit_nombre').value = data.producto.nombre_producto;
       document.getElementById('edit_precio').value = data.producto.precio_producto;
