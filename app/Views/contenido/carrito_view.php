@@ -23,11 +23,19 @@
             <?php $i = 1; ?>
             <?php $items = $cart->contents(); ?>
             <?php foreach ($items as $item) { ?>
-                <tr>
+                <tr
+                    <?php if (session()->has('rowid_sin_stock') && session('rowid_sin_stock') == $item['rowid']) : ?>
+                        style="border: solid 2px red; color: red;"
+                    <?php endif ?>
+                >
                     <td><?php echo $i++; ?></td>
                     <td><?= $item['name']; ?></td>
-                    <td>$ <?php echo $item['price']; ?></td>
-                    <td><?php echo $item['qty']; ?></td>
+                    <td >$ <?php echo $item['price']; ?></td>
+                    <td
+                        <?php if (session()->has('rowid_sin_stock') && session('rowid_sin_stock') == $item['rowid']) : ?>
+                            style="color: red;"
+                        <?php endif ?>
+                    ><?php echo $item['qty']; ?></td>
                     <td><?php echo $item['subtotal']; ?></td>
                     <?php $total = $total + $item['subtotal']; ?>
                     <td>
@@ -44,9 +52,38 @@
             </tr>
             <tr>
                 <td colspan="6">
-                    <a href="ventas" class="btn btn-success" role="button">Ordenar compra</a>
+                    <a href="ventas" class="btn btn-success" role="button">Confirmar Compra</a>
                 </td>
             </tr>
         </tbody>
     </table>
 <?php } ?>
+
+<!-- Modal Compra -->
+<div class="modal fade" id="modalCompra" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true"  data-bs-theme="dark">
+    <div class="modal-dialog inter">
+        <div class="modal-content">
+            <div class="modal-body">
+                <?php if (session()->has('mensaje_carrito')) : ?>
+                    <div class="alert alert-success mt-2 fs-1" role="alert">
+                        <?= esc(session('mensaje_carrito')) ?>
+                    </div>
+                <?php endif ?>
+                <?php if (session()->has('error_carrito')) : ?>
+                    <div class="alert alert-danger mt-2 fs-1" role="alert">
+                        <?= esc(session('error_carrito')) ?>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if (session()->has('mensaje_carrito') || session()->has('error_carrito')) : ?>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = new bootstrap.Modal(document.getElementById('modalCompra'));
+            modal.show();
+        });
+    </script>
+<?php endif; ?>

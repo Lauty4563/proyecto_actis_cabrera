@@ -202,9 +202,9 @@
                 </div>
                 <div class="modal-body">
 
-                    <?php if (!empty($mensaje_login)) : ?>
+                    <?php if (session()->has('mensaje_login')) : ?>
                         <div class="alert alert-danger mt-2" role="alert">
-                            <?= esc($mensaje_login)?>
+                            <?= esc(session('mensaje_login')) ?>
                         </div>
                     <?php endif ?>
 
@@ -223,7 +223,7 @@
                     <form id="formLogin" action="login_usuario" method="POST">
                         <div class="mb-3">
                             <label for="login_email" class="form-label">Email</label>
-                            <input name="login_email" type="email" class="form-control" id="login_email" autocomplete="off" required>
+                            <input value="<?= old('login_email') ?>" name="login_email" type="email" class="form-control" id="login_email" autocomplete="off" required>
                         </div>
                         <div class="mb-3">
                             <label for="login_contrasena" class="form-label">Contraseña</label>
@@ -243,8 +243,16 @@
                 modal.show();
             });
         </script>
-     <?php endif; ?>
+    <?php endif; ?>
 
+    <?php if (session()->has('mensaje_login')) : ?>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var modal = new bootstrap.Modal(document.getElementById('modalIngreso'));
+                modal.show();
+            });
+        </script>
+    <?php endif; ?>
 
     <script>
         document.getElementById('searchIcon').addEventListener('click', function() {

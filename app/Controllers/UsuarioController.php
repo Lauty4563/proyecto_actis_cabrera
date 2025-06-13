@@ -180,7 +180,7 @@ class UsuarioController extends BaseController
                 }
             }
         } else {
-            return redirect()->route('/')->with('mensaje_login', '¡Usuario y/o contraseña incorrecto!');
+            return redirect()->route('/')->with('mensaje_login', '¡Usuario y/o contraseña incorrecto!')->withInput();
         }
 
     }

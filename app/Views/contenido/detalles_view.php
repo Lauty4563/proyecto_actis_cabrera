@@ -40,7 +40,12 @@
 
                 <div class="pb-1">Stock disponible (<?= $producto['stock_producto'] ?>)</div>
 
-                <?php echo form_open('add_cart'); ?>
+                <?php 
+                  echo form_open('add_cart'); 
+                  echo form_hidden('id', $producto['id_producto']);
+                  echo form_hidden('titulo', $producto['nombre_producto']);
+                  echo form_hidden('precio', $producto['precio_producto']);
+                ?>
 
                 <div class="col-auto pb-3">
                   <select name="cantidad" class="form-select btn btn-warning bg-opacity-50 z-0">
@@ -65,14 +70,11 @@
 
 
               <div class="d-grid gap-2 mt-3">
-                <button class="btn btn-primary" type="button">Comprar</button>
+                <button class="btn btn-primary" type="submit">Comprar</button>
               </div>
 
               <div class="d-grid gap-2 mt-3">
                 <?php
-                  echo form_hidden('id', $producto['id_producto']);
-                  echo form_hidden('titulo', $producto['nombre_producto']);
-                  echo form_hidden('precio', $producto['precio_producto']);
                   echo form_submit('comprar', 'Agregar al carrito', 'class="btn btn-primary" type="button"');
                   echo form_close();
                 ?>
