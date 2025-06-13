@@ -50,7 +50,9 @@
 
                 <?php if(session('login')) : ?>
                     <div>
-                        <?= session('usuario') ?>
+                        <a href="<?= base_url('perfil') ?>" class="text-white text-decoration-none">
+                            <?= session('usuario') ?>
+                        </a>
                     </div>
                     <a type="button" href="<?= base_url('logout') ?>" class="btn btn-dark ms-3 border-primary">
                         Logout
