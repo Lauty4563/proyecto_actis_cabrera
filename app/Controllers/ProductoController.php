@@ -265,4 +265,11 @@ public function actualizarProducto($id)
     }    
 }
 
+    public function obtenerProductosAleatorios() 
+{
+    $producto_Model = new Productos_Model();
+    $productosAleatorios = $producto_Model->orderBy('RAND()')->findAll(6);
+    return $productosAleatorios;
+}
+
 }

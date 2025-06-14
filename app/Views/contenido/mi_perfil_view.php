@@ -31,7 +31,7 @@
                 <label for="ui_imagen" class="custom-file-upload" style="cursor: pointer;">
                     <img src="./assets/img/upload.png" alt="subir imagen" width="50" style="filter: drop-shadow(0 0 5px black)">
                 </label>
-                <input class="" type="file" name="ui_imagen" id="ui_imagen">
+                <input class="d-none" type="file" name="ui_imagen" id="ui_imagen">
                 <div class="d-flex justify-content-center" style="height: 30px;">
                     <button type="submit" class="btn border-warning text-white" style="font-size: 12px;">
                         Update

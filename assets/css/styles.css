@@ -30,6 +30,7 @@
 
 .img-categoria {
     transition: all 0.2s;
+    cursor: pointer;
 }
 
 .img-categoria:hover {
@@ -298,8 +299,8 @@ footer {
 }
 
 .swiper-marcas .swiper-slide img {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     filter: grayscale(40%);
@@ -353,12 +354,12 @@ footer {
     cursor: pointer;
 }
 
-input[type="file"] {
-    display: none;
-}
-
 .contenedor-perfil:hover img,
 .contenedor-perfil:hover .c-perfil {
     box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.8);
     filter: brightness(1.1);
+}
+
+.titulo {
+    font-family: 'DM-Sans', sans-serif;
 }

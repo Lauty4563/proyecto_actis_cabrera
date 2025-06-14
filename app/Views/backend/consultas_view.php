@@ -1,5 +1,7 @@
-<div class="container py-4">
-    <h2 class="mb-4">Consultas recibidas</h2>
+<div class="container">
+    <div class="w-100 mt-3 mb-3 p-3 border rounded d-flex justify-content-center titulo" style="background: linear-gradient(45deg, rgb(99, 92, 0), rgb(32, 31, 18), rgb(26, 25, 25), rgb(32, 31, 18), rgb(179, 167, 0));">
+        <h1 class="text-center"  style="letter-spacing: 3px;">Consultas Recibidas</h1>
+    </div>
 
     <?php if (session()->getFlashdata('mensaje_respuesta')): ?>
         <div class="alert alert-success">
@@ -10,10 +12,18 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Asunto</th>
-                <th>Acciones</th>
+                <th style="background-color: rgb(120, 120, 120); color: white; font-size: 18px;">
+                    Nombre
+                </th>
+                <th style="background-color: rgb(120, 120, 120); color: white; font-size: 18px;">
+                    Email
+                </th>
+                <th style="background-color: rgb(120, 120, 120); color: white; font-size: 18px;">
+                    Asunto
+                </th>
+                <th style="background-color: rgb(120, 120, 120); color: white; font-size: 18px;">
+                    Acciones
+                </th>
             </tr>
         </thead>
         <tbody>

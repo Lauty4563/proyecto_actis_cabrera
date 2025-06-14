@@ -67,113 +67,35 @@
             
             <div class="swiper-wrapper">
 
+              <?php 
+                $i = 0;
+                foreach($productosAleatorios as $pa) : 
+                $i = $i + 200;
+                ?>
                 <div class="swiper-slide p-2">
-                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=1' ?>" style="width: 14rem;">
-                        <img src="./assets/img/oferta1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
+                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=' . $pa['id_producto'] ?>" style="width: 14rem;" data-aos="fade-down" data-aos-delay="<?= $i ?>">
+                        <img src="./assets/img/<?= $pa['imagen_producto']; ?>" class="img-fluid" alt="..." style="height: 75%; object-fit: cover; background-color: white;">
                         <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
                             <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
-                                Zapatillas Nike Air Max Hombre
+                                <?= $pa['nombre_producto']; ?>
                             </h5>
                             <div class="card-text d-flex align-items-center justify-content-between">
-                                <p class="mb-0 text-white fs-6"><strong> ARS$ 199,99 </strong></p>
-                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
-                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-                                </button>
+                                <p class="mb-0 text-white fs-6"><strong> ARS$ <?= $pa['precio_producto']; ?> </strong></p>
                             </div>
                         </div>
                     </a>
                 </div>
-
-                <div class="swiper-slide p-2">
-                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=2' ?>" style="width: 14rem;">
-                        <img src="./assets/img/otoño1.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
-                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
-                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
-                                Campera Running Puma Mesh
-                            </h5>
-                            <div class="card-text d-flex align-items-center justify-content-between">
-                                <p class="mb-0 text-white fs-6"><strong> ARS$ 199.99 </strong></p>
-                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
-                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-                                </button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide p-2">
-                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=3' ?>" style="width: 14rem;">
-                        <img src="./assets/img/oferta2.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
-                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
-                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
-                                Zapatillas Running Puma
-                            </h5>
-                            <div class="card-text d-flex align-items-center justify-content-between">
-                                <p class="mb-0 text-white fs-6"><strong> ARS$ 89.99 </strong></p>
-                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
-                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-                                </button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide p-2">
-                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=4' ?>" style="width: 14rem;">
-                        <img src="./assets/img/otoño3.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
-                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
-                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
-                                Remera Training Hang Loose
-                            </h5>
-                            <div class="card-text d-flex align-items-center justify-content-between">
-                                <p class="mb-0 text-white fs-6"><strong> ARS$ 119.99 </strong></p>
-                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
-                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-                                </button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide p-2">
-                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=5' ?>" style="width: 14rem;">
-                        <img src="./assets/img/oferta3.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
-                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
-                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
-                                Zapatillas Puma Park Lifestyle
-                            </h5>
-                            <div class="card-text d-flex align-items-center justify-content-between">
-                                <p class="mb-0 text-white fs-6"><strong> ARS$ 119.99 </strong></p>
-                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
-                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-                                </button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="swiper-slide p-2">
-                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=6' ?>" style="width: 14rem;">
-                        <img src="./assets/img/otoño2.jpg" class="img-fluid" alt="..." style="height: 75%; object-fit: cover;">
-                        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
-                            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
-                            Buzo Training Kion Skill
-                            </h5>
-                            <div class="card-text d-flex align-items-center justify-content-between">
-                                <p class="mb-0 text-white fs-6"><strong> ARS$ 89.99 </strong></p>
-                                <button type="button" class="btn btn-outline-secondary rounded-pill p-0" data-bs-toggle="button" style="width: 3.5rem; height: 2rem;">
-                                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-                                </button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+              <?php endforeach ?>
 
             </div>
 
             <!-- Botones de navegación -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next" 
+                  style="border-radius: 50%; object-fit: cover; filter: grayscale(40%); transition: transform 0.3s ease, filter 0.3s ease; box-shadow: 0 0 5px 2px rgba(100, 100, 100, 0.9);width: 50px;height: 50px; color: grey; background-color: rgba(255, 255, 255, 0.9);">
+            </div>
+            <div class="swiper-button-prev"
+                  style="border-radius: 50%; object-fit: cover; filter: grayscale(40%); transition: transform 0.3s ease, filter 0.3s ease; box-shadow: 0 0 5px 2px rgba(100, 100, 100, 0.9);width: 50px;height: 50px; color: grey; background-color: rgba(255, 255, 255, 0.9);">
+            </div>
         </div>
 
     </div>
@@ -193,7 +115,7 @@
 <div class="swiper swiper-marcas py-4">
   <div class="swiper-wrapper">
     <!-- Marca -->
-    <div class="swiper-slide brand-slide">
+    <div class="swiper-slide ">
       <img src="./assets/img/Adidas.jpg" alt="Adidas">
     </div>
     <div class="swiper-slide brand-slide">
@@ -242,11 +164,11 @@
 
   <div class="row w-100" data-bs-theme="dark">
     
-    <img src="./assets/img/mujer.jpg" class="col-4 img-categoria" alt="categoria_mujer">
+    <img src="./assets/img/mujer.jpg" class="col-4 img-categoria" alt="categoria_mujer" onclick="irCatalogo()">
     
-    <img src="./assets/img/hombre.jpg" class="col-4 img-categoria" alt="categoria_hombre">
+    <img src="./assets/img/hombre.jpg" class="col-4 img-categoria" alt="categoria_hombre" onclick="irCatalogo()">
 
-    <img src="./assets/img/kids.jpg" class="col-4 img-categoria" alt="categoria_niños">
+    <img src="./assets/img/kids.jpg" class="col-4 img-categoria" alt="categoria_niños" onclick="irCatalogo()">
   </div>
 </div>
 
@@ -280,3 +202,9 @@
 </div>
 
 </div>
+
+<script>
+  function irCatalogo() {
+    window.location.href = '<?= base_url('productos') ?>';
+  }
+</script>

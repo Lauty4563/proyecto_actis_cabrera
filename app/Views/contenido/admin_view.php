@@ -1,10 +1,10 @@
-<div class="container-fluid py-4">
+<div class="container py-4" style="flex-grow: 1;">
     <h2 class="mb-4">Bienvenido, <?= session('nombre') . ' ' . session('apellido') ?></h2>
 
     <div class="row">
         <!-- Usuarios activos -->
         <div class="col-md-4 mb-3">
-            <div class="card border-primary shadow-sm">
+            <div class="card border-primary shadow-sm h-100">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-users me-2"></i>Usuarios activos</h5>
                     <p class="fs-3"><?= esc($totalUsuarios) ?></p>
@@ -38,7 +38,7 @@
     <!-- Últimos mensajes -->
     <div class="mt-5">
         <h4>Últimos mensajes de contacto</h4>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped mt-3">
             <thead>
                 <tr>
                     <th style="background-color: rgb(120, 120, 120); color: white">Nombre</th>

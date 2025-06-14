@@ -1,68 +1,84 @@
-<h1 class="text-center">Listado de Productos</h1>
-
-<?php if (!empty($mensaje_gestion)) : ?>
-    <div class="container alert alert-success mt-2" role="alert" data-bs-theme="dark" style="font-size: larger;">
-        <?= esc($mensaje_gestion)?>
-    </div>
-<?php endif ?>
-
 <div class="container">
-    <table id="mytable" class="table table-borbred table-striped table-hover">
-      <thead>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Categorias (Colección, Género, Prenda)</th>
-        <th>Descripción</th>
-        <th>Stock</th>
-        <th>Imagen</th>
+  <div class="w-100 mt-3 mb-3 p-3 border rounded d-flex justify-content-center titulo" style="background: linear-gradient(45deg, rgb(0, 75, 75), rgb(32, 32, 32), rgb(26, 25, 25), rgb(32, 32, 32), rgb(0, 104, 107));">
+    <h1 class="text-center"  style="letter-spacing: 3px;">Listado de Productos</h1>
+  </div>
 
-        <th>Editar</th>
-        <th>Activar</th>
+  <?php if (!empty($mensaje_gestion)) : ?>
+      <div class="container alert alert-success mt-2" role="alert" data-bs-theme="dark" style="font-size: larger;">
+          <?= esc($mensaje_gestion)?>
+      </div>
+  <?php endif ?>
 
-      </thead>
+  <div>
+      <table id="mytable" class="table table-borbred table-striped table-hover">
+        <thead>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white; font-size: 20px;">
+            Nombre
+          </th>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white; font-size: 20px;">
+            Precio
+          </th>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white;">
+            Categorias 
+            <p class="text-center align-middle" style="font-size: 10px;">(Colección, Género, Prenda)</p>
+          </th>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white; font-size: 20px;">
+            Descripción
+          </th>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white; font-size: 20px;">
+            Stock
+          </th>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white; font-size: 20px;">
+            Imagen
+          </th>
 
-      <tbody>
-        <?php foreach($producto as $row) : ?>
-          <tr class="position-relative">
-            <td><?php echo $row['nombre_producto'];?></td>
-            <td><?php echo $row['precio_producto'];?></td>
-            <td>
-              <?php echo $row['nombre_coleccion'];?>
-              <?php echo $row['nombre_genero'];?>
-              <?php echo $row['nombre_prenda'];?>
-            </td>
-            <td><?php echo $row['descripcion_producto'];?></td>
-            <td><?php echo $row['stock_producto'];?></td>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white; font-size: 20px;">Editar</th>
+          <th class="text-center align-middle" style="background-color: rgb(120, 120, 120); color: white; font-size: 20px;">Activar</th>
 
-            <td><img src="./assets/img/<?php echo $row['imagen_producto'];?>" alt="" width="100" height="100"></td>
-            <td>
-              <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" 
-              onclick="editarProducto(<?= $row['id_producto'] ?>)" style="position: relative;z-index: 4;">
-                Editar
-              </button>
-            </td>
+        </thead>
 
-            <td>
-              <?php if($row['activo'] == 1) : ?>
-                <a class="btn btn-danger" href="<?= base_url('activar_producto/'.$row['id_producto'].'/0') ?>" 
-                  onclick="return confirm('¿Estás seguro que quieres desactivar este producto?');">
-                  Desactivar
-                </a>
-              <?php else : ?>
-                <a class="btn btn-success" href="<?= base_url('activar_producto/'.$row['id_producto'].'/1') ?>" style="position: relative;z-index: 4;">
-                  Activar
-                </a>
-              <?php endif ?>
-              <?php if($row['activo'] == 0 ) : ?>
-                <div class="position-absolute" style="left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(128, 128, 128, 0.6);"></div>
-              <?php endif ?>
-            </td>
-          </tr>
-        <?php endforeach ?>
-      </tbody>
-    </table>
+        <tbody>
+          <?php foreach($producto as $row) : ?>
+            <tr class="position-relative">
+              <td><?php echo $row['nombre_producto'];?></td>
+              <td><?php echo $row['precio_producto'];?></td>
+              <td>
+                <?php echo $row['nombre_coleccion'];?>
+                <?php echo $row['nombre_genero'];?>
+                <?php echo $row['nombre_prenda'];?>
+              </td>
+              <td><?php echo $row['descripcion_producto'];?></td>
+              <td><?php echo $row['stock_producto'];?></td>
+
+              <td><img src="./assets/img/<?php echo $row['imagen_producto'];?>" alt="" width="100" height="100"></td>
+              <td>
+                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalEditar" 
+                onclick="editarProducto(<?= $row['id_producto'] ?>)" style="position: relative;z-index: 4;">
+                  Editar
+                </button>
+              </td>
+
+              <td>
+                <?php if($row['activo'] == 1) : ?>
+                  <a class="btn btn-danger" href="<?= base_url('activar_producto/'.$row['id_producto'].'/0') ?>" 
+                    onclick="return confirm('¿Estás seguro que quieres desactivar este producto?');">
+                    Desactivar
+                  </a>
+                <?php else : ?>
+                  <a class="btn btn-success" href="<?= base_url('activar_producto/'.$row['id_producto'].'/1') ?>" style="position: relative;z-index: 4;">
+                    Activar
+                  </a>
+                <?php endif ?>
+                <?php if($row['activo'] == 0 ) : ?>
+                  <div class="position-absolute" style="left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(128, 128, 128, 0.6);"></div>
+                <?php endif ?>
+              </td>
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
+  </div>
 </div>
-
 <!-- Modal Editar -->
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true"  data-bs-theme="dark">
     <div class="modal-dialog inter">
