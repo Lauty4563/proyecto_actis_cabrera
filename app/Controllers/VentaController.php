@@ -16,8 +16,8 @@ class VentaController extends BaseController
         $usuarioModel = new Usuario_Model();
         $productoModel = new Productos_Model();
 
-        // Obtener todas las ventas (que no estén eliminadas)
-        $ventas = $ventaModel->findAll();
+        $ventas = $ventaModel->orderBy('id_venta', 'DESC')->findAll();
+
 
         $ventasDetalladas = [];
 

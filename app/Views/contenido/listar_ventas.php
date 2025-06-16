@@ -1,5 +1,7 @@
 <div class="container my-4">
-    <h2 class="text-white">Listado de Ventas</h2>
+    <div class="w-100 mt-3 mb-3 p-3 border rounded d-flex justify-content-center titulo" style="background: linear-gradient(45deg, rgb(0, 75, 75), rgb(32, 32, 32), rgb(26, 25, 25), rgb(32, 32, 32), rgb(0, 104, 107));">
+        <h1 class="text-center"  style="letter-spacing: 3px;">Listado de Ventas</h1>
+    </div>
 
     <?php foreach ($ventas as $venta): ?>
         <div class="card mb-3">
