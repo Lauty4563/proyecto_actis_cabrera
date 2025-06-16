@@ -44,4 +44,6 @@ $routes->get('ver_carrito', 'CarritoController::ver_carrito');
 $routes->post('add_cart', 'CarritoController::agregar_carrito');
 $routes->get('eliminar_item/(:any)', 'CarritoController::eliminar/$1');
 $routes->get('ventas', 'CarritoController::guardar_venta');
+$routes->get('listar_ventas', 'VentaController::listarVentas');
+$routes->get('ventas/detalle/(:num)', 'VentaController::verDetalle/$1');
 

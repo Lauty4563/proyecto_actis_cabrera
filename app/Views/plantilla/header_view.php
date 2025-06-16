@@ -7,21 +7,24 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <!-- Enlaces a CSS3 -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="./assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/reset.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/styles.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/aos.css') ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/drift-basic.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/swiper-bundle.min.css') ?>">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/drift-basic.min.css') ?>">
+
+    
 
 
     <!-- Enlaces a JavaScript -->
-    <script defer src="./assets/js/bootstrap.bundle.min.js"></script>
-    <script defer src="./assets/js/aos.js"></script>
-    <script defer src="./assets/js/swiper-bundle.min.js"></script>
-    <script defer src="./assets/js/Drift.min.js"></script>
-    <script defer src="./assets/js/inicializar-complementos.js"></script>
+    <script defer src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+    <script defer src="<?= base_url('assets/js/aos.js') ?>"></script>
+    <script defer src="<?= base_url('assets/js/swiper-bundle.min.js') ?>"></script>
+    <script defer src="<?= base_url('assets/js/Drift.min.js') ?>"></script>
+    <script defer src="<?= base_url('assets/js/inicializar-complementos.js') ?>"></script>
+
 </head>
 
 <body class="p-sm-0 d-flex flex-column min-vh-100 bg-dark text-white">

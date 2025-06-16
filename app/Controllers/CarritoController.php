@@ -91,7 +91,7 @@ class CarritoController extends BaseController
         }
 
         $data = array (
-            'id_cliente' => session('id'),
+            'id_usuario' => session('id'),
             'venta_fecha' => date('Y-m-d'),
         );
 

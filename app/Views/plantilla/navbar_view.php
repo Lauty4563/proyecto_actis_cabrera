@@ -21,8 +21,8 @@
                         href="<?= base_url('ver_consultas') ?>">
                             Ver consultas
                         </a>
-                        <a class="nav-link <?= ($active == 'Listar ventas') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
-                        href="<?= base_url('contacto') ?>">
+                        <a class="nav-link <?= ($active == 'ventas') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
+                        href="<?= base_url('listar_ventas') ?>">
                             Listar ventas
                         </a>
                         <a class="nav-link <?= ($active == 'registrar-productos') ? 'active text-white border-top border-bottom border-secondary' : '' ?> text-white nav-op dm-sans" 
