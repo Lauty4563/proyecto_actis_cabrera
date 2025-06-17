@@ -12,8 +12,7 @@ class Admin implements FilterInterface
     {
         $session = session();
 
-        // Verifica si el usuario está logueado y es administrador
-        if (!$session->get('login') || $session->get('perfil_id') != 2) {
+        if (!$session->get('login') || $session->get('perfil') != 2) {
             return redirect()->to('/')->with('mensaje_error', 'Acceso restringido: solo administradores');
         }
     }

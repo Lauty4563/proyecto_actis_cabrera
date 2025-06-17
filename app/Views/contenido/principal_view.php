@@ -12,6 +12,11 @@
   </div>
 <?php endif ?>
 
+<?php if (session ('mensaje_error')) : ?>
+            <div class="alert alert-success mt-2" role="alert">
+                <?= session('mensaje_error') ?>
+            </div>
+        <?php endif ?>
 <?php if (!empty($validation_registro) || !empty($validation_login)) : ?>
   <div class="alert alert-danger mt-4" role="alert">
       Error al ingresar datos.
