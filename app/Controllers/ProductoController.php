@@ -21,7 +21,7 @@ public function cargar_producto()
 
     $validation->setRules(
         [
-            'nombre_producto' => 'max_length[50]',
+            'nombre_producto' => 'required|max_length[50]',
             'precio_producto' => 'numeric|greater_than_equal_to[0]',
             'descripcion_producto' => 'max_length[255]',
             'cat_coleccion' => 'integer',
@@ -32,6 +32,7 @@ public function cargar_producto()
         ],
         [   // Errores personalizados
             'nombre_producto' => [
+                'required' => 'El nombre del producto es obligatorio',
                 'max_length' => 'El nombre no debe superar los 50 caracteres',
             ],
             'precio_producto' => [
@@ -177,7 +178,7 @@ public function actualizarProducto($id)
 
     $validation->setRules(
         [
-            'edit_nombre' => 'max_length[50]',
+            'edit_nombre' => 'required|max_length[50]',
             'edit_precio' => 'numeric|greater_than_equal_to[0]',
             'edit_coleccion' => 'integer',
             'edit_genero' => 'integer',
@@ -188,6 +189,7 @@ public function actualizarProducto($id)
         ],
         [   // Errores personalizados
             'edit_nombre' => [
+                'required' => 'El nombre del producto no puede estar vacio',
                 'max_length' => 'El nombre no debe superar los 50 caracteres',
             ],
             'edit_precio' => [
@@ -260,6 +262,7 @@ public function actualizarProducto($id)
         
         return redirect()
             ->route('gestionar_productos')
+            ->with('error_gestion', 'Ocurrió un error al intentar actualizar el producto. Por favor, revisá los campos ingresados.')
             ->with('validation_gestion', $validation->getErrors())
             ->withInput();
     }    

@@ -449,7 +449,7 @@ public function listarUsuarios()
             return redirect()->back()->with('error', 'Usuario no encontrado.');
         }
 
-        $usuarioModel->delete($id);
+        $usuarioModel->delete($id, true);
 
         return redirect()->back()->with('mensaje', 'Usuario eliminado correctamente.');
     }
