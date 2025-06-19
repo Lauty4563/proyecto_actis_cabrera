@@ -275,4 +275,28 @@ public function actualizarProducto($id)
     return $productosAleatorios;
 }
 
+public function buscar()
+{
+    $query = $this->request->getGet('query');
+
+    $productoModel = new \App\Models\Productos_Model();
+    
+    $resultados = $productoModel
+        ->like('nombre_producto', $query)
+        ->orLike('descripcion_producto', $query)
+        ->findAll();
+
+    $data = [
+    'titulo' => 'Resultados de búsqueda',
+    'query' => $query,
+    'productos' => $resultados,
+    'active' => 'productos', // o 'productos', si querés que esa opción quede resaltada
+    ];
+
+    return view('plantilla/header_view', $data)
+        . view('plantilla/navbar_view', $data)
+        . view('contenido/resultados_busqueda', $data)
+        . view('plantilla/footer_view');
+}
+
 }

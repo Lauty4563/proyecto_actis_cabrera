@@ -267,8 +267,15 @@ public function miPerfil()
         ];
     }
 
+    $totalGastado = 0;
+
+        foreach ($ventas as $v) {
+            $totalGastado += $v['total'];
+        }
+
     $data['usuario'] = $user;
     $data['ventas'] = $ventas;
+    $data['totalGastado'] = $totalGastado;
     $data['titulo'] = 'Mi Perfil';
     $data['active'] = 'mi_perfil';
 

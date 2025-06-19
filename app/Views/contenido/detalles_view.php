@@ -26,9 +26,13 @@
 
                 <h2><?= $producto['nombre_producto'] ?></h2>
 
-                <p class="mb-2"
-                   style="font-size: 28px;"  
-                >ARS $<?= $producto['precio_producto'] ?></p>
+                <p class="text-muted mb-3">
+                  <?= nl2br(esc($producto['descripcion_producto'])) ?>
+                </p>
+
+                <p class="mb-2" style="font-size: 28px;">
+                  ARS $<?= $producto['precio_producto'] ?>
+                </p>
 
                 <div class="flex mb-5">
                   <img src="./assets/img/star.png" alt="estrella" width="25">
@@ -68,10 +72,6 @@
                   </select>
                 </div>
 
-
-              <div class="d-grid gap-2 mt-3">
-                <button class="btn btn-primary" type="submit">Comprar</button>
-              </div>
 
               <div class="d-grid gap-2 mt-3">
                 <?php

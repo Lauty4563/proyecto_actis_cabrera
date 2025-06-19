@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $titulo ?></title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?= base_url('favicon.ico') ?>" type="image/x-icon">
 
     <!-- Enlaces a CSS3 -->
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/reset.css') ?>">
@@ -45,12 +45,13 @@
                 </button>
 
                 <!-- Barra de búsqueda oculta por defecto -->
-                <form class="d-flex ms-3" id="searchForm" action="#" method="GET"  onsubmit="return false;" style="display: none;">
-                    <input class="form-control me-2" type="search" name="query" placeholder="Buscar..." aria-label="Buscar">
+                <form class="d-flex ms-3" id="searchForm" action="<?= base_url('buscar') ?>" method="GET" style="display: none;">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Buscar..." aria-label="Buscar" required>
                     <button class="btn btn-outline-primary" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
+
 
                 <?php if(session('login')) : ?>
                     <a href="<?= base_url('mi_perfil') ?>" class="text-white text-decoration-none contenedor-perfil">
@@ -58,8 +59,8 @@
                             <img class="perfil-img rounded-circle position-absolute" 
                                 src="
                                     <?= empty(session('imagen')) 
-                                    ? './assets/img/perfiles/perfil_default.jpg' 
-                                    : './assets/img/perfiles/' . session('imagen') ?>
+                                    ? base_url('./assets/img/perfiles/perfil_default.jpg') 
+                                    : base_url('./assets/img/perfiles/') . session('imagen') ?>
                                 " 
                                 width="43" height="43"
                                 style="object-fit: cover; left: -5px; bottom: -3px;"
@@ -119,18 +120,17 @@
 
                     <form action="registro_usuario" method="post" id="formRegistro">
                         <div class="col-12">
-                            <div
-                                style="font-size: 16px ;letter-spacing: 0.2rem;">
+                            <div style="font-size: 16px ;letter-spacing: 0.2rem;">
                                 DATOS DE USUARIO (Requerido)
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="usuario" class="form-label formulario">Nombre de Usuario</label>
-                                    <input name="usuario" type="text" class="form-control" id="usuario" autocomplete="off" required>
+                                    <input name="usuario" type="text" class="form-control" id="usuario" value="<?= old('usuario') ?>" autocomplete="off" required>
                                 </div>
                                 <div class="mb-3 col">
                                     <label for="email" class="form-label formulario">Email</label>
-                                    <input name="email" type="email" class="form-control" id="email" autocomplete="off" required>
+                                    <input name="email" type="email" class="form-control" id="email" value="<?= old('email') ?>" autocomplete="off" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -144,66 +144,67 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-12">
-                            <div
-                                style="font-size: 16px ;letter-spacing: 0.2rem;">
+                            <div style="font-size: 16px ;letter-spacing: 0.2rem;">
                                 DATOS DE ENVIO (Opcional)
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="nombre" class="form-label formulario">Nombre</label>
-                                    <input name="nombre" type="text" class="form-control" id="nombre" autocomplete="off">
+                                    <input name="nombre" type="text" class="form-control" id="nombre" value="<?= old('nombre') ?>" autocomplete="off">
                                 </div>
                                 <div class="mb-3 col">
                                     <label for="apellido" class="form-label formulario">Apellido</label>
-                                    <input name="apellido" type="text" class="form-control" id="apellido" autocomplete="off">
+                                    <input name="apellido" type="text" class="form-control" id="apellido" value="<?= old('apellido') ?>" autocomplete="off">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="dni" class="form-label formulario">DNI</label>
-                                    <input name="dni" type="number" class="form-control" id="dni" autocomplete="off">
+                                    <input name="dni" type="number" class="form-control" id="dni" value="<?= old('dni') ?>" autocomplete="off">
                                 </div>
                                 <div class="mb-3 col">
                                     <label for="fecha" class="form-label formulario">Fecha de Nacimiento</label>
-                                    <input name="fecha" type="date" class="form-control" id="fecha" autocomplete="off">
+                                    <input name="fecha" type="date" class="form-control" id="fecha" value="<?= old('fecha') ?>" autocomplete="off">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
                                     <label for="direccion" class="form-label formulario">Dirección</label>
-                                    <input name="direccion" type="text" class="form-control" id="direccion" autocomplete="off">
+                                    <input name="direccion" type="text" class="form-control" id="direccion" value="<?= old('direccion') ?>" autocomplete="off">
                                 </div>
                                 <div class="mb-3 col">
-                                    <label for="provincia" class="form-label formulario">Provicia/Estado</label>
-                                    <input name="provincia" type="text" class="form-control" id="provincia" autocomplete="off">
+                                    <label for="provincia" class="form-label formulario">Provincia/Estado</label>
+                                    <input name="provincia" type="text" class="form-control" id="provincia" value="<?= old('provincia') ?>" autocomplete="off">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="mb-3 col">
-                                    <label for="pais" class="form-label formulario">Pais</label>
-                                    <input name="pais" type="text" class="form-control" id="pais">
+                                    <label for="pais" class="form-label formulario">País</label>
+                                    <input name="pais" type="text" class="form-control" id="pais" value="<?= old('pais') ?>">
                                 </div>
                                 <div class="mb-3 col">
                                     <label for="codigopostal" class="form-label formulario">Código Postal</label>
-                                    <input name="codigopostal" type="number" class="form-control" id="codigopostal" autocomplete="off">
+                                    <input name="codigopostal" type="number" class="form-control" id="codigopostal" value="<?= old('codigopostal') ?>" autocomplete="off">
                                 </div>
                             </div>
                             <div class="mb-3 col">
                                 <input type="checkbox" class="" id="terminosRegistro" autocomplete="off" required>
                                 <label for="terminosRegistro" class="form-label formulario" style="margin-left:5px; margin-top: 10px;font-size: 17px !important">
-                                    Aceptar <a href="<?= base_url('terminos') ?>">Terminos y Condiciones de Uso.</a>
+                                    Aceptar <a href="<?= base_url('terminos') ?>">Términos y Condiciones de Uso.</a>
                                 </label>
                             </div>
                             <div class="mb-3 col">
-                                <input type="checkbox" class="" id="newsRegistro" autocomplete="off">
+                                <input type="checkbox" class="" id="newsRegistro" name="newsRegistro" <?= old('newsRegistro') ? 'checked' : '' ?> autocomplete="off">
                                 <label for="newsRegistro" class="form-label formulario" style="margin-left:5px;font-size: 17px !important">
-                                    Suscribete a nuestro newsletter recibir las mejores ofertas.</a>
+                                    Suscribete a nuestro newsletter para recibir las mejores ofertas.
                                 </label>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Registrarse</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -244,10 +245,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="login_contrasena" class="form-label">Contraseña</label>
-                            <input name="login_contrasena" type="password" class="form-control" autocomplete="off" id="login_contrasena" required>
+                            <input name="login_contrasena" type="password" class="form-control" id="login_contrasena" autocomplete="off" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Ingresar</button>
                     </form>
+
                 </div>
             </div>
         </div>

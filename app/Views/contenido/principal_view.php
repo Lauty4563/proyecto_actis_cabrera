@@ -78,7 +78,7 @@
                 $i = $i + 200;
                 ?>
                 <div class="swiper-slide p-2">
-                    <a class="card w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=' . $pa['id_producto'] ?>" style="width: 14rem;" data-aos="fade-down" data-aos-delay="<?= $i ?>">
+                    <a class="card card-efecto w-100 p-2 bg-transparent border-secondary" href="<?= base_url('detalles') . '?id=' . $pa['id_producto'] ?>" style="width: 14rem;" data-aos="fade-down" data-aos-delay="<?= $i ?>">
                         <img src="./assets/img/<?= $pa['imagen_producto']; ?>" class="img-fluid" alt="..." style="height: 75%; object-fit: cover; background-color: white;">
                         <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
                             <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">

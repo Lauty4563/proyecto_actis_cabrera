@@ -8,7 +8,7 @@
         <?= session('error_gestion') ?>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
     </div>
-<?php endif; ?>
+  <?php endif; ?>
 
   <?php if (!empty($mensaje_gestion)) : ?>
       <div class="container alert alert-success mt-2" role="alert" data-bs-theme="dark" style="font-size: larger;">
@@ -224,7 +224,7 @@
 
     fetch('<?= base_url('editar_producto') ?>/' + <?= old('edit_id') ?> )
     .then(response => response.json())
-    .then(data => {;
+    .then(data => {
 
       // Rellenar select de colección
       const coleccionSelect = document.getElementById('edit_coleccion');

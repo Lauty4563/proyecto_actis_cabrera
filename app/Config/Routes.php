@@ -21,6 +21,7 @@ $routes->get('editar_producto/(:num)', 'ProductoController::editarProducto/$1');
 $routes->post('actualizar_producto/(:num)', 'ProductoController::actualizarProducto/$1');
 $routes->post('productos/guardar', 'ProductoController::guardar');
 $routes->post('cargar_producto', 'ProductoController::cargar_producto');
+$routes->get('buscar', 'ProductoController::buscar');
 
 $routes->get('upload', 'Upload::index');          
 $routes->post('upload/upload', 'Upload::upload'); 

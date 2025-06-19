@@ -41,7 +41,7 @@
 
     <?php foreach($productos as $p) : ?>
 
-      <a class="producto card p-2 bg-transparent border-secondary" href="<?= base_url('detalles' . '?id=' . $p['id_producto']) ?>" style="width: 14rem; height: 24rem;"
+      <a class="producto card card-efecto p-2 bg-transparent border-secondary" href="<?= base_url('detalles' . '?id=' . $p['id_producto']) ?>" style="width: 14rem; height: 24rem;"
         data-coleccion="<?= $p['nombre_coleccion'] ?>"
         data-genero="<?= $p['nombre_genero'] ?>"
         data-prenda="<?= $p['nombre_prenda'] ?>">

@@ -118,6 +118,12 @@
         <div class="card bg-dark text-white border-secondary p-3">
             <h4 class="mb-3">Mis Pedidos</h4>
 
+            <?php if (!empty($ventas)) : ?>
+                <div class="alert alert-success text-center fs-5">
+                    Total gastado en compras: <strong>$<?= number_format($totalGastado, 2, ',', '.') ?></strong>
+                </div>
+            <?php endif ?>
+
             <?php if (empty($ventas)) : ?>
                 <div class="alert alert-info">No tenés pedidos realizados todavía.</div>
             <?php else : ?>

@@ -27,8 +27,6 @@
 
     <h3 class="text-white mb-4">👥 Usuarios del sistema</h3>
 
-    <input type="text" id="buscarUsuario" class="form-control mb-4" placeholder="Buscar usuarios...">
-
     <div class="row">
         <div class="col-md-6">
             <h5 class="text-info">Clientes</h5>
@@ -43,14 +41,14 @@
                             <!-- Form eliminar -->
                             <form method="post" action="<?= base_url('admin/usuarios/eliminar/' . $cliente['id_usuario']) ?>" style="display:inline;" onsubmit="return confirm('¿Eliminar usuario? Esta acción no se puede deshacer.')">
                                 <?= csrf_field() ?>
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                               <button type="submit" class="btn btn-danger btn-sm px-2 py-1">Eliminar</button>
                             </form>
 
                             <!-- Form cambiar rol a Admin -->
                             <form method="post" action="<?= base_url('admin/usuarios/cambiar_rol/' . $cliente['id_usuario']) ?>" style="display:inline;">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="nuevo_rol" value="2" />
-                                <button type="submit" class="btn btn-info">Hacer Admin</button>
+                                <button type="submit" class="btn btn-info btn-sm px-2 py-1">Hacer Admin</button>
                             </form>
                         </div>
                     </li>
@@ -71,14 +69,14 @@
                             <!-- Form eliminar -->
                             <form method="post" action="<?= base_url('admin/usuarios/eliminar/' . $admin['id_usuario']) ?>" style="display:inline;" onsubmit="return confirm('¿Eliminar usuario? Esta acción no se puede deshacer.')">
                                 <?= csrf_field() ?>
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button type="submit" class="btn btn-danger btn-sm px-2 py-1">Eliminar</button>
                             </form>
 
                             <!-- Form cambiar rol a Cliente -->
                             <form method="post" action="<?= base_url('admin/usuarios/cambiar_rol/' . $admin['id_usuario']) ?>" style="display:inline;">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="nuevo_rol" value="1" />
-                                <button type="submit" class="btn btn-info">Hacer Cliente</button>
+                                <button type="submit" class="btn btn-info btn-sm px-2 py-1">Hacer Cliente</button>
                             </form>
                         </div>
                     </li>
@@ -88,15 +86,3 @@
     </div>
 </div>
 
-<script>
-    document.getElementById('buscarUsuario').addEventListener('input', function() {
-        const filtro = this.value.toLowerCase();
-        ['listaClientes', 'listaAdmins'].forEach(id => {
-            const lista = document.getElementById(id);
-            Array.from(lista.children).forEach(li => {
-                const texto = li.textContent.toLowerCase();
-                li.style.display = texto.includes(filtro) ? '' : 'none';
-            });
-        });
-    });
-</script>
