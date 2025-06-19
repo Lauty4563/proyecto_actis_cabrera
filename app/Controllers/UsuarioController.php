@@ -3,6 +3,10 @@
 namespace App\Controllers;
 
 use App\Models\Usuario_Model;
+use App\Models\Venta_Model;
+use App\Models\Detalle_Venta_Model;
+use App\Models\Productos_Model;
+
 
 class UsuarioController extends BaseController
 {
@@ -216,19 +220,61 @@ class UsuarioController extends BaseController
     return redirect()->route('/');
 }
 
-    public function miPerfil() 
+public function miPerfil() 
 {
     if (!session()->has('id')) {
         return redirect()->back()->with('mensaje_login', 'Debes iniciar sesión para acceder a tu perfil de usuario.');
     }
 
     $user_Model = new Usuario_Model();
+    $ventaModel = new Venta_Model();
+    $detalleModel = new Detalle_Venta_Model();
+    $productoModel = new Productos_Model();
+
     $user = $user_Model->where('id_usuario', session('id'))->first();
+
+    // Obtener ventas del usuario
+    $ventasRaw = $ventaModel
+        ->where('id_usuario', session('id'))
+        ->orderBy('venta_fecha', 'DESC')
+        ->findAll();
+
+    $ventas = [];
+
+    foreach ($ventasRaw as $venta) {
+        $detalles = $detalleModel->where('id_venta', $venta['id_venta'])->findAll();
+        $productos = [];
+        $total = 0;
+
+        foreach ($detalles as $detalle) {
+            $prod = $productoModel->find($detalle['id_producto']);
+            $subtotal = $detalle['detalle_cantidad'] * $detalle['detalle_precio'];
+            $total += $subtotal;
+
+            $productos[] = [
+                'nombre' => $prod['nombre_producto'] ?? 'Producto eliminado',
+                'precio' => $detalle['detalle_precio'],
+                'cantidad' => $detalle['detalle_cantidad'],
+                'subtotal' => $subtotal
+            ];
+        }
+
+        $ventas[] = [
+            'id_venta' => $venta['id_venta'],
+            'fecha' => $venta['venta_fecha'],
+            'total' => $total,
+            'productos' => $productos
+        ];
+    }
+
     $data['usuario'] = $user;
+    $data['ventas'] = $ventas;
     $data['titulo'] = 'Mi Perfil';
     $data['active'] = 'mi_perfil';
+
     $this->cargarVista('./contenido/mi_perfil_view', $data);
 }
+
 
     public function updateEnvioUser() 
 {
@@ -367,5 +413,71 @@ class UsuarioController extends BaseController
     
     return redirect()->route('mi_perfil');
 }
+
+public function listarUsuarios()
+{
+    $usuarioModel = new \App\Models\Usuario_Model();
+
+    $clientes = $usuarioModel->where('perfil_id', 1)->findAll();
+    $admins = $usuarioModel->where('perfil_id', 2)->findAll();
+
+    $data = [
+        'titulo' => 'Usuarios del sistema',
+        'active' => 'usuarios',
+        'clientes' => $clientes,
+        'admins' => $admins,
+    ];
+
+    return view('plantilla/header_view', $data)
+        . view('plantilla/navbar_view', $data)
+        . view('contenido/listar_usuarios', $data)
+        . view('plantilla/footer_view');
+}
+
+ public function eliminar($id)
+    {
+        $usuarioModel = new Usuario_Model();
+
+        // Validar que no se elimine a sí mismo (opcional pero recomendado)
+        if ($id == session('id')) {
+            return redirect()->back()->with('error', 'No puedes eliminar tu propio usuario.');
+        }
+
+        // Verificar que exista el usuario
+        $usuario = $usuarioModel->find($id);
+        if (!$usuario) {
+            return redirect()->back()->with('error', 'Usuario no encontrado.');
+        }
+
+        $usuarioModel->delete($id);
+
+        return redirect()->back()->with('mensaje', 'Usuario eliminado correctamente.');
+    }
+
+    // Cambiar rol de usuario (cliente <-> admin)
+    public function cambiar_rol($id)
+    {
+        $usuarioModel = new Usuario_Model();
+
+        // Validar que no se cambie rol a sí mismo (opcional)
+        if ($id == session('id')) {
+            return redirect()->back()->with('error', 'No puedes cambiar tu propio rol.');
+        }
+
+        // Validar que exista usuario
+        $usuario = $usuarioModel->find($id);
+        if (!$usuario) {
+            return redirect()->back()->with('error', 'Usuario no encontrado.');
+        }
+
+        $nuevoRol = $this->request->getPost('nuevo_rol');
+        if (!in_array($nuevoRol, ['1', '2'])) {
+            return redirect()->back()->with('error', 'Rol inválido.');
+        }
+
+        $usuarioModel->update($id, ['perfil_id' => $nuevoRol]);
+
+        return redirect()->back()->with('mensaje', 'Rol cambiado correctamente.');
+    }
 
 }

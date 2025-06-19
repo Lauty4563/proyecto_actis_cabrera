@@ -2,12 +2,12 @@
     <h2 class="mb-4">Bienvenido, <?= session('nombre') . ' ' . session('apellido') ?></h2>
 
     <div class="row">
-        <!-- Usuarios activos -->
         <div class="col-md-4 mb-3">
-            <div class="card border-primary shadow-sm h-100">
+            <div class="card border-success shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-users me-2"></i>Usuarios activos</h5>
                     <p class="fs-3"><?= esc($totalUsuarios) ?></p>
+                    <a href="<?= base_url('admin/usuarios') ?>" class="btn btn-sm btn-outline-primary mt-2">Ver usuarios</a>
                 </div>
             </div>
         </div>

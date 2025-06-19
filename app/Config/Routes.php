@@ -31,10 +31,14 @@ $routes->post('mensaje', 'Contacto::guardar');
 $routes->post('registro_usuario', 'UsuarioController::add_cliente');
 $routes->post('login_usuario', 'UsuarioController::buscar_usuario');
 $routes->get('user_admin', 'UsuarioController::admin');
+$routes->get('admin/usuarios', 'UsuarioController::listarUsuarios', ['filter' => 'admin']);
 $routes->get('logout', 'UsuarioController::cerrar_sesion');
 $routes->get('mi_perfil', 'UsuarioController::miPerfil', ['filter' => 'cliente']);
 $routes->post('update_envio_user', 'UsuarioController::updateEnvioUser');
 $routes->post('update_imagen_user', 'UsuarioController::updateImagenUser');
+$routes->get('admin/usuarios', 'UsuarioController::listarUsuarios', ['filter' => 'admin']);
+$routes->post('admin/usuarios/eliminar/(:num)', 'UsuarioController::eliminar/$1', ['filter' => 'admin']);
+$routes->post('admin/usuarios/cambiar_rol/(:num)', 'UsuarioController::cambiar_rol/$1', ['filter' => 'admin']);
 
 
 $routes->get('ver_consultas', 'Contacto::consultas', ['filter' => 'admin']);

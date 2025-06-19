@@ -109,4 +109,42 @@
 
     </div>
 
+<div class="container my-5">
+    <button class="btn btn-outline-light mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#misPedidosCollapse" aria-expanded="false" aria-controls="misPedidosCollapse">
+        🧾 Ver / Ocultar Mis Pedidos
+    </button>
+
+    <div class="collapse" id="misPedidosCollapse">
+        <div class="card bg-dark text-white border-secondary p-3">
+            <h4 class="mb-3">Mis Pedidos</h4>
+
+            <?php if (empty($ventas)) : ?>
+                <div class="alert alert-info">No tenés pedidos realizados todavía.</div>
+            <?php else : ?>
+                <?php foreach ($ventas as $venta): ?>
+                    <div class="card mb-3 bg-dark border border-secondary">
+                        <div class="card-header d-flex justify-content-between">
+                            <span>Venta #<?= esc($venta['id_venta']) ?> - <?= esc($venta['fecha']) ?></span>
+                            <span>Total: <strong>$<?= number_format($venta['total'], 2, ',', '.') ?></strong></span>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush bg-dark">
+                                <?php foreach ($venta['productos'] as $producto): ?>
+                                    <li class="list-group-item bg-dark text-white">
+                                        <?= esc($producto['cantidad']) ?> x <?= esc($producto['nombre']) ?> 
+                                        ($<?= number_format($producto['precio'], 2, ',', '.') ?>) 
+                                        = $<?= number_format($producto['subtotal'], 2, ',', '.') ?>
+                                    </li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    </div>
+                <?php endforeach ?>
+            <?php endif ?>
+        </div>
+    </div>
+</div>
+
+
+
 </div>
