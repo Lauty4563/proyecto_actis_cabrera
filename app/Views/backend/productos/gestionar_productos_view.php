@@ -222,7 +222,7 @@
         modal.show();
     });
 
-    fetch('<?= base_url('editar_producto') ?>/' + <?= old('edit_id') ?> )
+    fetch('<?= base_url('editar_producto') ?>/' + json_decode(<?= old('edit_id') ?>) )
     .then(response => response.json())
     .then(data => {
 

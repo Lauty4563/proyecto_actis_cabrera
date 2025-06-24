@@ -41,36 +41,38 @@
 
     <?php foreach($productos as $p) : ?>
 
-      <a class="producto card card-efecto p-2 bg-transparent border-secondary" href="<?= base_url('detalles' . '?id=' . $p['id_producto']) ?>" style="width: 14rem; height: 24rem;"
-        data-coleccion="<?= $p['nombre_coleccion'] ?>"
-        data-genero="<?= $p['nombre_genero'] ?>"
-        data-prenda="<?= $p['nombre_prenda'] ?>">
-        <img src="./assets/img/<?= $p['imagen_producto'] ?>" class="img-fluid" alt="..." style="height: 75%; object-fit: cover; background-color: white;">
-        <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
-          <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
-            <?= $p['nombre_producto'] ?>
-          </h5>
-          <div class="card-text d-flex align-items-center justify-content-between">
-            <p class="mb-0 text-white fs-6">ARS$</p>
-            <p class="mb-0 text-white fs-4">
-              <strong><?= $p['precio_producto'] ?> </strong>
-            </p>
+      <?php if($p['activo'] == 1) : ?>
+        <a class="producto card card-efecto p-2 bg-transparent border-secondary" href="<?= base_url('detalles' . '?id=' . $p['id_producto']) ?>" style="width: 14rem; height: 24rem;"
+          data-coleccion="<?= $p['nombre_coleccion'] ?>"
+          data-genero="<?= $p['nombre_genero'] ?>"
+          data-prenda="<?= $p['nombre_prenda'] ?>">
+          <img src="./assets/img/<?= $p['imagen_producto'] ?>" class="img-fluid" alt="..." style="height: 75%; object-fit: cover; background-color: white;">
+          <div class="card-body bg-transparent p-0 pt-1" style="height: 25%">
+            <h5 class="card-title text-white text-center d-flex align-items-center justify-content-center" style="height: 3rem; overflow: hidden; text-overflow: ellipsis; font-size: 1rem;">
+              <?= $p['nombre_producto'] ?>
+            </h5>
+            <div class="card-text d-flex align-items-center justify-content-between">
+              <p class="mb-0 text-white fs-6">ARS$</p>
+              <p class="mb-0 text-white fs-4">
+                <strong><?= $p['precio_producto'] ?> </strong>
+              </p>
 
-            <?php if(!empty(session('login'))) : ?>
-              <?php echo form_open('add_cart');
-                echo form_hidden('id', $p['id_producto']);
-                echo form_hidden('titulo', $p['nombre_producto']);
-                echo form_hidden('precio', $p['precio_producto']);
-                echo form_hidden('cantidad', '1'); ?>
-                <button type="submit" class="btn btn-outline-secondary rounded-pill p-0" style="width: 3.5rem; height: 2rem;">
-                  <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
-                </button>
-              <?php echo form_close();
-              ?>
-            <?php endif ?>
+              <?php if(!empty(session('login'))) : ?>
+                <?php echo form_open('add_cart');
+                  echo form_hidden('id', $p['id_producto']);
+                  echo form_hidden('titulo', $p['nombre_producto']);
+                  echo form_hidden('precio', $p['precio_producto']);
+                  echo form_hidden('cantidad', '1'); ?>
+                  <button type="submit" class="btn btn-outline-secondary rounded-pill p-0" style="width: 3.5rem; height: 2rem;">
+                    <img class="img-fluid" src="./assets/img/buy-icon.png" alt="buy" style="height: 90%; object-fit: cover;"/>
+                  </button>
+                <?php echo form_close();
+                ?>
+              <?php endif ?>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      <?php endif ?>
 
     <?php endforeach ?>
 
