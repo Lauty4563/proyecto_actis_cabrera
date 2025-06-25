@@ -84,5 +84,11 @@
             </ul>
         </div>
     </div>
+
+    <div class="mb-4 text-end">
+        <a href="<?= base_url('admin/usuarios/eliminados') ?>" class="btn btn-warning mb-3">
+            🗑 Ver usuarios eliminados
+        </a>
+    </div>
 </div>
 

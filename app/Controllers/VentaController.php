@@ -22,7 +22,7 @@ class VentaController extends BaseController
         $ventasDetalladas = [];
 
         foreach ($ventas as $venta) {
-            $usuario = $usuarioModel->find($venta['id_usuario']);
+            $usuario = $usuarioModel->withDeleted()->find($venta['id_usuario']);
             $detalles = $detalleModel->where('id_venta', $venta['id_venta'])->findAll();
 
             $productosVendidos = [];
@@ -75,7 +75,7 @@ class VentaController extends BaseController
             return redirect()->to('listar_ventas')->with('mensaje_error', 'Venta no encontrada.');
         }
 
-        $usuario = $usuarioModel->find($venta['id_usuario']);
+        $usuario = $usuarioModel->withDeleted()->find($venta['id_usuario']);
         $detalles = $detalleModel->where('id_venta', $id_venta)->findAll();
 
         $productos = [];

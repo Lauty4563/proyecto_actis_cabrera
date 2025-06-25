@@ -40,6 +40,9 @@ $routes->post('update_imagen_user', 'UsuarioController::updateImagenUser');
 $routes->get('admin/usuarios', 'UsuarioController::listarUsuarios', ['filter' => 'admin']);
 $routes->post('admin/usuarios/eliminar/(:num)', 'UsuarioController::eliminar/$1', ['filter' => 'admin']);
 $routes->post('admin/usuarios/cambiar_rol/(:num)', 'UsuarioController::cambiar_rol/$1', ['filter' => 'admin']);
+$routes->get('admin/usuarios/eliminados', 'UsuarioController::eliminados', ['filter' => 'admin']);
+$routes->post('admin/usuarios/restaurar/(:num)', 'UsuarioController::restaurar/$1');
+$routes->post('admin/usuarios/restaurar/(:num)', 'UsuarioController::restaurar/$1', ['filter' => 'admin']);
 
 
 $routes->get('ver_consultas', 'Contacto::consultas', ['filter' => 'admin']);

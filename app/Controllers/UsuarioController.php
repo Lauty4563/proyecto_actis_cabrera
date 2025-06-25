@@ -456,7 +456,7 @@ public function listarUsuarios()
             return redirect()->back()->with('error', 'Usuario no encontrado.');
         }
 
-        $usuarioModel->delete($id, true);
+        $usuarioModel->delete($id);
 
         return redirect()->back()->with('mensaje', 'Usuario eliminado correctamente.');
     }
@@ -486,5 +486,41 @@ public function listarUsuarios()
 
         return redirect()->back()->with('mensaje', 'Rol cambiado correctamente.');
     }
+
+    public function eliminados()
+    {
+        $usuarioModel = new Usuario_Model();
+
+        $eliminados = $usuarioModel->onlyDeleted()->findAll();
+
+        $data = [
+            'titulo' => 'Usuarios eliminados',
+            'active' => 'usuarios',
+            'eliminados' => $eliminados,
+        ];
+
+        return view('plantilla/header_view', $data)
+            . view('plantilla/navbar_view', $data)
+            . view('contenido/usuarios_eliminados', $data)
+            . view('plantilla/footer_view');
+    }
+
+    public function restaurar($id)
+{
+    $usuarioModel = new Usuario_Model();
+
+    $usuario = $usuarioModel->withDeleted()->find($id);
+    if (!$usuario) {
+        return redirect()->back()->with('error', 'Usuario no encontrado.');
+    }
+
+    // Actualizar directamente con el Query Builder para evitar problemas
+    $builder = $usuarioModel->builder();
+    $builder->set('deleted_at', null);
+    $builder->where('id_usuario', $id);
+    $builder->update();
+
+    return redirect()->back()->with('mensaje', 'Usuario restaurado correctamente.');
+}
 
 }

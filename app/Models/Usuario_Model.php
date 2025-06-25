@@ -22,8 +22,8 @@ class Usuario_Model extends Model
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
+    protected $createdField  = '';
+    protected $updatedField  = '';
     protected $deletedField  = 'deleted_at';
 
     // Validation
